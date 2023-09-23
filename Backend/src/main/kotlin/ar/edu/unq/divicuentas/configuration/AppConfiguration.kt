@@ -1,4 +1,4 @@
-package ar.edu.unq.epers.tactics.spring.configuration
+package ar.edu.unq.divicuentas.configuration
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

@@ -1,4 +1,4 @@
-package ar.edu.unq.epers.tactics.spring
+package ar.edu.unq.divicuentas
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
