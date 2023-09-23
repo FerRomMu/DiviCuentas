@@ -45,7 +45,6 @@ dependencies {
     }
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    compile( "org.hibernate:hibernate-core:5.4.12.Final")
 }
 
 tasks.withType<Test> {
