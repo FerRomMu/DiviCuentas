@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 import './Home.css';
@@ -46,26 +45,33 @@ const Home = () => {
     //   ];
 
     return(
-        <div className='container-boxes-restaurants'>
+        <section className='container-boxes-restaurants'>
             <h1 className='title'>Restaurants</h1>
 
-            {/* <div className='restaurants'>
-                {restaurants.map((restaurant) => {
+            <div className='restaurants'>
+                {restaurants.map((restaurant, i) => {
                     return (
-                        <Box key={restaurant.id} className='restaurant'>
-                            <div>
-                                <img className='img-restaurant' src={restaurant.image} alt=''/>
-                            </div>
-                            <div>
-                                <h2>{restaurant.name}</h2>
+                        <div key={restaurant.i} className='restaurant'>
+                            <aside className='image-grid'>
+                                <img src={restaurant.image} alt=''/>
+                            </aside>
+                            <header className='title-grid'>
+                              <h2 className='title'>{restaurant.name}</h2>
+                              <p className='subtitle'>{restaurant.tipo_cocina}</p>
+                            </header>
+                            <section className='info-grid'>
+                              <div>
+                                <img className='img-location' src='https://icon-library.com/images/new-location-icon/new-location-icon-4.jpg' alt=""></img>
                                 <p>{restaurant.direction}</p>
-                                <p>{restaurant.tipo_cocina}</p>
-                            </div>
-                        </Box>
+                              </div>
+                            </section>
+                            <button className='button-grid'>Ver menú</button>
+                        </div>
                     )
                 })}
-            </div> */}
-        </div>
+            </div>
+        </section>
+
     )
 
 }

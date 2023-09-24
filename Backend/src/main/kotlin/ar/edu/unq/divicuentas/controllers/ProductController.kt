@@ -27,6 +27,6 @@ class ProductController {
             ProductDTO.toDTO(service.getById(id)!!)
         } catch (e: NullPointerException) {
             throw NotFoundException("Producto con id $id no encontrado.")
+            }
         }
     }
-}
