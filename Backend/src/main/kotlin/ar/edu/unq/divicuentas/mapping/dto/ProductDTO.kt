@@ -1,7 +1,6 @@
-package ar.edu.unq.divicuentas.controllers.dto
+package ar.edu.unq.divicuentas.mapping.dto
 
 import ar.edu.unq.divicuentas.modelo.Product
-import ar.edu.unq.divicuentas.modelo.Restaurant
 
 class ProductDTO(
     var name: String,
@@ -10,12 +9,12 @@ class ProductDTO(
     var price: Double
 ) {
 
-    fun aModelo(): Product {
+    fun toModel(): Product {
         return Product(this.name, this.image, this.description, this.price)
     }
 
     companion object {
-        fun fromDTO(product: Product): ProductDTO {
+        fun toDTO(product: Product): ProductDTO {
             return ProductDTO(product.name, product.image, product.description, product.price)
         }
     }

@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication()
-class EpersTacticsApplication
+class DiviCuentasApplication
 
 fun main(args: Array<String>) {
-	runApplication<EpersTacticsApplication>(*args)
+	runApplication<DiviCuentasApplication>(*args)
 }
