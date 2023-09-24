@@ -1,8 +1,7 @@
 package ar.edu.unq.divicuentas.controllers
 
-import ar.edu.unq.divicuentas.controllers.dto.ProductDTO
+import ar.edu.unq.divicuentas.mapping.dto.ProductDTO
 import ar.edu.unq.divicuentas.service.IProductService
-import ar.edu.unq.divicuentas.service.IRestaurantService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -16,6 +15,6 @@ class ProductController {
 
     @PostMapping
     fun createProduct(@RequestBody productDTO: ProductDTO) : ProductDTO{
-        return ProductDTO.fromDTO(service.create(productDTO.aModelo()))
+        return ProductDTO.fromDTO(service.create(productDTO.toModel()))
     }
 }
