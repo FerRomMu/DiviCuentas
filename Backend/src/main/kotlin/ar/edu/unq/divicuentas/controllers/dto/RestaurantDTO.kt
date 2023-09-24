@@ -4,7 +4,9 @@ import ar.edu.unq.divicuentas.modelo.Product
 import ar.edu.unq.divicuentas.modelo.Restaurant
 import ar.edu.unq.divicuentas.service.IProductService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 
+@Component
 class RestaurantDTO(
     var name: String,
     var direction: String,
@@ -13,8 +15,7 @@ class RestaurantDTO(
     var menu: List<Long>
 ) {
 
-    @Autowired
-    lateinit var service: IProductService
+    @Autowired lateinit var service: IProductService
 
     fun aModelo(): Restaurant {
         return Restaurant(this.name, this.direction, this.type, this.image, this.menu.map { idP -> service.getById(idP) ?: throw Exception("sarasa") }.toMutableList())

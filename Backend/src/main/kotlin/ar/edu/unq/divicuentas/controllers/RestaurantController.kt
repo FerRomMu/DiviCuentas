@@ -17,11 +17,12 @@ class RestaurantController {
     @Autowired
     lateinit var service: IRestaurantService
     @GetMapping
-    fun restaurant(id: Long) : Restaurant{
-        return service.getById(id) ?: throw NotFoundException("Restaurante no encontrado.")
+    fun restaurant(id: Long) : RestaurantDTO {
+        val restaurant = service.getById(id) ?: throw NotFoundException("Restaurante no encontrado.")
+        return RestaurantDTO.fromDTO(restaurant)
     }
     @PostMapping
-    fun createRestaurant(@RequestBody restaurant: RestaurantDTO): RestaurantDTO {
-        return RestaurantDTO.fromDTO(service.create(restaurant.aModelo()))
+    fun createRestaurant(@RequestBody restaurantDTO: RestaurantDTO): RestaurantDTO {
+        return RestaurantDTO.fromDTO(service.create(restaurantDTO.aModelo()))
     }
 }
