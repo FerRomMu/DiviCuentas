@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { DatabaseProvider } from './Mocking';
 import Home from './components/home/Home';
 import Views from './components/Views';
+import Menu from './components/menu/Menu';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,7 @@ root.render(
           <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
           <App />
           <Routes>
-            {/* <Route path="/" element={<Views />} /> */}
+            <Route path="/menu" element={<Menu />} />
             <Route path="/home" element={<Home />} />
           </Routes>
         </DatabaseProvider>
