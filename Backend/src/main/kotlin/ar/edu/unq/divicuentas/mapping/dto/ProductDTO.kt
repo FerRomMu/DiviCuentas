@@ -14,7 +14,7 @@ class ProductDTO(
     }
 
     companion object {
-        fun fromDTO(product: Product): ProductDTO {
+        fun toDTO(product: Product): ProductDTO {
             return ProductDTO(product.name, product.image, product.description, product.price)
         }
     }
