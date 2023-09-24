@@ -1,0 +1,35 @@
+.container-boxes-restaurants { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.title {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.restaurants {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.restaurant {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    border: 3px white solid;
+    margin-top: 15px;
+    border-radius: 5px;
+    justify-content: space-evenly;
+}
+
+.img-restaurant {
+    width: 400px;
+    height: 300px;
+    align-self: flex-start;
+}
