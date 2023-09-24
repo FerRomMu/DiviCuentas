@@ -1,10 +1,6 @@
 package ar.edu.unq.divicuentas.modelo
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.OneToMany
+import javax.persistence.*
 
 @Entity
 class Restaurant(
@@ -12,7 +8,8 @@ class Restaurant(
     var direction: String,
     var type: String,
     var image: String,
-    @OneToMany var menu: MutableList<Product>
+    @OneToMany(fetch = FetchType.EAGER
+        ,cascade = [CascadeType.ALL]) var menu: MutableList<Product>
 ) {
 
     @Id
