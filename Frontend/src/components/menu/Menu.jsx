@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useService from '../services/useService';
 import './Menu.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Menu = () => {
 
@@ -9,6 +9,7 @@ const Menu = () => {
     const { state } = useLocation();
     const { restaurant } = state;
     const [products, setProducts] = useState([])
+    const navigate = useNavigate();
     
    
     useEffect(() => {
@@ -36,12 +37,16 @@ const Menu = () => {
       return productsInRows
     }
 
+    const backToHome = () => {
+        navigate('/home');
+    }
+
     const list = productsInRows(products)
 
-    console.log(list)
     const productsRow = (products) => {
       return (
         <>
+        <button className='volver-btn' onClick={() => backToHome()}>{" Volver"}</button>
         { products.map((prod, i) =>
           <div className='product'>
             <h1 className='grid-title'>{prod ? prod.name : ''}</h1>

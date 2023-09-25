@@ -1,3 +1,15 @@
+.volver-btn {
+    position: absolute;
+    color:#2d3748;
+    padding: 10px;
+    font-weight: 600;
+    background-color: #4A98F7;
+    border: 1px solid #4A98F7;
+    border-radius: 5px;
+    top: 10px;
+    left: 10px;
+}
+
 .title_menu {
     width: 100vw;
     text-align: center;
