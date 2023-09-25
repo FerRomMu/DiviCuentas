@@ -80,12 +80,14 @@ const Menu = () => {
       return (
         <>
         { products.map((prod, i) =>
-          <div className='products'>
-            <div className='box-product'>
-                <h1 className='product-name'>{prod ? prod.name : ''}</h1>
-                <img className='product-img' src={prod ? prod.image : ''} alt=''></img>
-                <p>{prod ? prod.description : ''}</p>
-                <p className='price'>${prod ? prod.price : ''}</p>
+          <div className='product'>
+            <h1 className='grid-title'>{prod ? prod.name : ''}</h1>
+            <div className='grid-img'>
+              <img className='img' src={prod ? prod.image : ''} alt=''></img>
+            </div>
+            <div className='grid-info'>
+              <p className='description'>{prod ? prod.description : ''}</p>
+              <p>${prod ? prod.price : ''}</p>
             </div>
           </div>
         ) }
@@ -100,7 +102,7 @@ const Menu = () => {
             <div>
             {
               list.map((productsTrio, i) => {
-                return <div>{
+                return <div className='products'>{
                   productsRow(productsTrio)
                 }</div>
               })
