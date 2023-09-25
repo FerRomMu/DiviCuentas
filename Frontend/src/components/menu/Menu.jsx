@@ -10,29 +10,66 @@ const Menu = () => {
     const { restaurant } = state;
     const [products, setProducts] = useState([])
     
-    restaurant?.menu.map((idP) => {
-        product(idP)
-            .then((prod) => {
-                products.push(prod); 
-                setProducts(products);
-            })
-    })
+   
+    useEffect(() => {
+        const fetchProducts = async () => {
+          if (restaurant?.menu) {
+            const productPromises = restaurant.menu.map(async (idP) => {
+              return await product(idP);
+            });
+      
+            const productsToSet = await Promise.all(productPromises);
+      
+            setProducts(productsToSet);
+          }
+        };
+      
+        fetchProducts();
+      }, [restaurant]);
 
-    console.log(products)
+
+    const productsInRows = (products) => {
+      const productsInRows = []
+      for (let i = 0; i < products.length; i += 3) {
+        productsInRows.push(products.slice(i,i+3))
+      }
+      return productsInRows
+    }
+
+    const list = productsInRows(products)
+
+    console.log(list)
+    const productsRow = (products) => {
+      return (
+        <>
+        { products.map((prod, i) =>
+          <div className='product'>
+            <h1 className='grid-title'>{prod ? prod.name : ''}</h1>
+            <div className='grid-img'>
+              <img className='img' src={prod ? prod.image : ''} alt=''></img>
+            </div>
+            <div className='grid-info'>
+              <p className='description'>{prod ? prod.description : ''}</p>
+              <p>${prod ? prod.price : ''}</p>
+            </div>
+          </div>
+        ) }
+        </>
+      )
+      
+    }
 
     return (
         <div className='container'>
-            <h1 className='title'>Menú</h1>
-            <div className='products'>
-                {products.map((prod) => {
-                    <div className='box-product'>
-                        <h1 className='product-name'>{prod ? prod.name : ''}</h1>
-                        <img className='product-img' src={prod ? prod.image : ''} alt=''></img>
-                        <p>{prod ? prod.description : ''}</p>
-                        <p className='price'>${prod ? prod.price : ''}</p>
-                    </div>
-                })}
-            </div>
+            <h1 className='title_menu'>Menú</h1>
+            <div>
+            {
+              list.map((productsTrio, i) => {
+                return <div className='products'>{
+                  productsRow(productsTrio)
+                }</div>
+              })
+            }</div>
         </div>
     )
 
