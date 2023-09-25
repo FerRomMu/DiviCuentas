@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate , useHistory} from "react-router-dom";
 import './Home.css';
 import useService from '../services/useService';
 
 const Home = () => {
 
-    const { getRestaurants , product, restaurant} = useService();
-    const [restaurants, setRestaurants] = useState([])
+    const { getRestaurants } = useService();
+    const [restaurants, setRestaurants] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getRestaurants()
@@ -14,35 +15,11 @@ const Home = () => {
                 setRestaurants(listRest);
             })
 
-        product(1)
-        restaurant(1)
-
     }, [])
 
-    console.log(restaurants)
-    // const restaurants = [
-        // {
-        //   id: 1,
-        //   name: "BurguerBeer",
-        //   direction: "Av.Sarmiento 5130",
-        //   tipo_cocina: "Hamburguesas/Comida rápida",
-        //   image: "https://puntoapunto.com.ar/wp-content/uploads/2022/05/Burgerbeer.jpg"
-        // },
-    //     {
-    //       id: 2,
-    //       name: "Güerrín",
-    //       direction: "Av.Corrientes 1368",
-    //       tipo_cocina: "Pizzas",
-    //       image: "https://tn.com.ar/resizer/T1HDFanvJCkAI6VkJ6iDZIqzgNQ=/1440x0/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/artear/6BWOOZVNOVBPREIFB5WDT6E7CA.jpg"
-    //     },
-    //     {
-    //       id: 3,
-    //       name: "Dolce Vita Gelato",
-    //       direction: "Av.San Martín 2090",
-    //       tipo_cocina: "Helado/Postres",
-    //       image: "https://media-cdn.tripadvisor.com/media/photo-s/1b/ce/ad/d3/la-location.jpg"
-    //     }
-    //   ];
+    const navigateMenu = (restaurant) => {
+        navigate('/menu',  { state: { restaurant } }); 
+    }
 
     return(
         <section className='container-boxes-restaurants'>
@@ -65,7 +42,7 @@ const Home = () => {
                                 <p>{restaurant.direction}</p>
                               </div>
                             </section>
-                            <button className='button-grid'>Ver menú</button>
+                            <button className='button-grid' type='submit' onClick={() => navigateMenu(restaurant)}>Ver menú</button>
                         </div>
                     )
                 })}
