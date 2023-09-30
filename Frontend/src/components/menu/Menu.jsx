@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useService from '../services/useService';
 import './Menu.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import CreateOrder from "../createOrder/CreateOrder";
 
 const Menu = () => {
 
@@ -41,6 +42,10 @@ const Menu = () => {
         navigate('/home');
     }
 
+    const navigateToCreateOrder = () => {
+        navigate('/createOrder')
+    }
+
     const list = productsInRows(products)
 
     const productsRow = (products) => {
@@ -58,7 +63,7 @@ const Menu = () => {
               <p>${prod ? prod.price : ''}</p>
             </div>
           </div>
-        ) }
+        )}
         </>
       )
       
@@ -75,6 +80,14 @@ const Menu = () => {
                 }</div>
               })
             }</div>
+            <div>
+                {/* ...contenido del menú */}
+                <button onClick={navigateToCreateOrder}>Crear Pedido</button>
+
+                {/*/!* Renderiza el componente CreateOrder y pasa la función navigateToMenu como prop *!/*/}
+                {/*<CreateOrder navigateToMenu={navigateToMenu} />*/}
+            </div>
+
         </div>
     )
 
