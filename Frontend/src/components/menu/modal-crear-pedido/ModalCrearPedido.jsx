@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './ModalCrearPedido.css';
 
 
 const ModalCrearPedido = ({ setOrder , setName}) => {
@@ -17,16 +18,22 @@ const ModalCrearPedido = ({ setOrder , setName}) => {
     };
 
     return (
-        <div className="">
-            <h2>¿Qué desea pedir?</h2>
-            <input
-                type="text"
-                placeholder="Ingresar un nombre"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                required/>
-            <button onClick={handleConfirmar}>Confirmar</button>
-            {error && <p>{error}</p>}
+        <div className="modal-background">
+            <div className="modal-content">
+                <h2>¿Qué desea pedir?</h2>
+                <input
+                    type="text"
+                    placeholder="Ingresar un nombre"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    required/>
+
+                <button className='confirmar' onClick={handleConfirmar}>Confirmar</button>
+                {error && <p>{error}</p>}
+                {/* <div className="close-button" >
+                    Cerrar
+                </div> */}
+            </div>
         </div>
     )
 

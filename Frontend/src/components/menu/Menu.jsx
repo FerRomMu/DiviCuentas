@@ -15,7 +15,6 @@ const Menu = () => {
     const navigate = useNavigate();
     const [openModal, setOpenModal] = useState(false);
     const [isOrder, setOrder] = useState(false);
-    const [cantidadSumada, setCantidadSumada] = useState(0);
     const [name, setName] = useState("");
     
    
@@ -81,14 +80,10 @@ const Menu = () => {
               })
             }</div>
             <div className={isOrder ? 'hidden' : ''}>
-                {/* ...contenido del menú */}
                 <button onClick={abrirModal}>Crear Pedido</button>
                 {openModal && (
-                  <ModalCrearPedido setOrder={setOrder} setName={setName}></ModalCrearPedido>
+                  <ModalCrearPedido setOrder={setOrder} setName={setName} ></ModalCrearPedido>
                 )}
-
-                {/*/!* Renderiza el componente CreateOrder y pasa la función navigateToMenu como prop *!/*/}
-                {/*<CreateOrder navigateToMenu={navigateToMenu} />*/}
             </div>
 
         </div>
