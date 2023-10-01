@@ -18,7 +18,7 @@
     padding: 15px;
 }
 .products {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     display: flex;
     padding: 20px;
     width: 100vw;
@@ -72,4 +72,16 @@
     flex: 1;
     border-bottom: 2px white solid;
     padding-bottom: 15px;
+}
+
+.crearPedido-btn {
+    color:#2d3748;
+    padding: 15px;
+    font-weight: 600;
+    background-color: green;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    width: 200px;
+    display: block; /* Convierte el botón en un bloque para centrarlo */
+    margin: 100px auto 0;
 }
