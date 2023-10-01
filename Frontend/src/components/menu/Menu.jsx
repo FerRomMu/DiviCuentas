@@ -3,6 +3,8 @@ import useService from '../services/useService';
 import './Menu.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CreateOrder from "../createOrder/CreateOrder";
+import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';
+import ProductDisplay from './product-display/ProductDisplay';
 
 const Menu = () => {
 
@@ -11,6 +13,10 @@ const Menu = () => {
     const { restaurant } = state;
     const [products, setProducts] = useState([])
     const navigate = useNavigate();
+    const [openModal, setOpenModal] = useState(false);
+    const [isOrder, setOrder] = useState(false);
+    const [cantidadSumada, setCantidadSumada] = useState(0);
+    const [name, setName] = useState("");
     
    
     useEffect(() => {
@@ -42,28 +48,19 @@ const Menu = () => {
         navigate('/home');
     }
 
-    const navigateToCreateOrder = () => {
-        navigate('/createOrder')
+    const abrirModal = () => {
+      setOpenModal(true);
     }
-
+ 
     const list = productsInRows(products)
 
     const productsRow = (products) => {
       return (
         <>
-        <button className='volver-btn' onClick={() => backToHome()}>{" Volver"}</button>
-        { products.map((prod, i) =>
-          <div className='product'>
-            <h1 className='grid-title'>{prod ? prod.name : ''}</h1>
-            <div className='grid-img'>
-              <img className='img' src={prod ? prod.image : ''} alt=''></img>
-            </div>
-            <div className='grid-info'>
-              <p className='description'>{prod ? prod.description : ''}</p>
-              <p>${prod ? prod.price : ''}</p>
-            </div>
-          </div>
-        )}
+          <button className='volver-btn' onClick={() => backToHome()}>{" Volver"}</button>
+          { products.map((prod, i) =>
+              <ProductDisplay prod={prod} isOrder={isOrder}></ProductDisplay>
+          )}
         </>
       )
       
@@ -72,6 +69,9 @@ const Menu = () => {
     return (
         <div className='container'>
             <h1 className='title_menu'>Menú</h1>
+            {isOrder && (
+              <>Está pidiendo: {name} </>
+            )}
             <div>
             {
               list.map((productsTrio, i) => {
@@ -80,9 +80,12 @@ const Menu = () => {
                 }</div>
               })
             }</div>
-            <div>
+            <div className={isOrder ? 'hidden' : ''}>
                 {/* ...contenido del menú */}
-                <button onClick={navigateToCreateOrder}>Crear Pedido</button>
+                <button onClick={abrirModal}>Crear Pedido</button>
+                {openModal && (
+                  <ModalCrearPedido setOrder={setOrder} setName={setName}></ModalCrearPedido>
+                )}
 
                 {/*/!* Renderiza el componente CreateOrder y pasa la función navigateToMenu como prop *!/*/}
                 {/*<CreateOrder navigateToMenu={navigateToMenu} />*/}
