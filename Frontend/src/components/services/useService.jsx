@@ -4,6 +4,7 @@ export const useService = () => {
 
     const url_restaurant = 'http://localhost:8080/restaurant';
     const url_product = 'http://localhost:8080/product';
+    const url_order = 'http://localhost:8080/menu/order';
 
     // ---- Restaurants
     const getRestaurants = () => {
@@ -57,7 +58,22 @@ export const useService = () => {
             .catch((e) => console.error(e))
     }
 
-    return {getRestaurants, createRestaurant, restaurant, createProduct, product}
+    // ---- Menu
+    const createOrder = (owner, products) => {
+        const body = {
+            owner : owner,
+            products : products
+        }
+
+        return axios.post(`${url_order}`, body)
+            .then((res) => {
+                return res.data;
+            })
+            .catch((e) => console.error(e))
+        
+    }
+
+    return {getRestaurants, createRestaurant, restaurant, createProduct, product, createOrder}
 }
 
 export default useService
