@@ -1,10 +1,4 @@
-import { Navigate } from "react-router-dom";
-
-const DisplayRestaurant = ({ restaurant, id }) => {
-
-  const navigateMenu = (restaurant) => {
-    Navigate('/menu',  { state: { restaurant } }); 
-  }
+const DisplayRestaurant = ({ restaurant, id, callback }) => {
 
   return(
     <div key={id} className='restaurant'>
@@ -21,7 +15,7 @@ const DisplayRestaurant = ({ restaurant, id }) => {
             <p>{restaurant.direction}</p>
           </div>
         </section>
-        <button className='button-grid' type='submit' onClick={() => navigateMenu(restaurant)}>Ver menú</button>
+        <button className='button-grid' type='submit' onClick={() => callback(restaurant)}>Ver menú</button>
     </div>
   )
 }

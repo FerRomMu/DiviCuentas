@@ -65,10 +65,10 @@ const Menu = () => {
     }
 
     return (
-        <div className='container'>
+        <main className='container'>
             <h1 className='title_menu'>Menú</h1>
             {isOrder && (
-              <>Está pidiendo: {name} </>
+              <h2>Está pidiendo: {name} </h2>
             )}
             <div>
             {
@@ -78,14 +78,16 @@ const Menu = () => {
                 }</div>
               })
             }</div>
-            <div className={isOrder ? 'hidden' : ''}>
+            {!isOrder && (
+            <div>
                 <button onClick={abrirModal}>Crear Pedido</button>
                 {openModal && (
                   <ModalCrearPedido setOrder={setOrder} setName={setName} ></ModalCrearPedido>
                 )}
             </div>
+            )}
 
-        </div>
+        </main>
     )
 
 }

@@ -1,7 +1,7 @@
 import mockApi from './apis/mockApi';
-import realApi from './apis/api';
+import axiosConfig from './apis/axiosConfig';
 
-const api = process.env.REACT_APP_USE_MOCK_API === 'true' ? mockApi : realApi
+const api = process.env.REACT_APP_USE_MOCK_API === 'true' ? mockApi : axiosConfig
 const path = 'restaurant'
 
 const fetchRestaurantsData = async () => {
@@ -10,4 +10,3 @@ const fetchRestaurantsData = async () => {
 };
 
 export { fetchRestaurantsData };
-
