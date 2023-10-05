@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import useService from '../services/useService';
+import useService from '../../service/useService';
 import './Menu.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';

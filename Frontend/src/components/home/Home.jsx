@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import useRestaurantsData from '../../hooks/useRestaurantsData';
 import './Home.css';
-import useService from '../services/useService';
 import DisplayRestaurant from './display-restaurant/DisplayRestaurant';
 
 const Home = () => {
 
-    const { getRestaurants } = useService();
-    const [restaurants, setRestaurants] = useState([]);
-
-    useEffect(() => {
-        getRestaurants()
-            .then((listRest) => {
-                setRestaurants(listRest);
-            })
-
-    }, [])
+    const restaurants = useRestaurantsData();
 
     return(
         <main className='container-boxes-restaurants'>
