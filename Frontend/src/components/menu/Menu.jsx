@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import useService from '../services/useService';
 import './Menu.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import CreateOrder from "../createOrder/CreateOrder";
 import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';
 import ProductDisplay from './product-display/ProductDisplay';
 

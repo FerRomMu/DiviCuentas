@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate, useNavigate , useHistory} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './Home.css';
 import useService from '../services/useService';
+import DisplayRestaurant from './display-restaurant/DisplayRestaurant';
 
 const Home = () => {
 
@@ -26,29 +27,9 @@ const Home = () => {
             <h1 className='title'>Restaurants</h1>
 
             <div className='restaurants'>
-                {restaurants.map((restaurant, i) => {
-                    return (
-                        <div key={restaurant.i} className='restaurant'>
-                            <aside className='image-grid'>
-                                <img src={restaurant.image} alt=''/>
-                            </aside>
-                            <header className='title-grid'>
-                              <h2 className='title'>{restaurant.name}</h2>
-                              <p className='subtitle'>{restaurant.tipo_cocina}</p>
-                            </header>
-                            <section className='info-grid'>
-                              <div>
-                                <img className='img-location' src='https://icon-library.com/images/new-location-icon/new-location-icon-4.jpg' alt=""></img>
-                                <p>{restaurant.direction}</p>
-                              </div>
-                            </section>
-                            <button className='button-grid' type='submit' onClick={() => navigateMenu(restaurant)}>Ver menú</button>
-                        </div>
-                    )
-                })}
+                {restaurants?.map((restaurant, i) => <DisplayRestaurant restaurant={restaurant} id={i}/>)}
             </div>
         </section>
-
     )
 
 }
