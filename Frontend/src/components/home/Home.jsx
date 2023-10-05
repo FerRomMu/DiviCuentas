@@ -18,7 +18,7 @@ const Home = () => {
           <h1 className='title'>Restaurants</h1>
         </header>
         <section className='restaurants'>
-          {restaurants?.map((restaurant, i) => <DisplayRestaurant restaurant={restaurant} id={i} callback={navigateMenu}/>)}
+          {restaurants?.map((restaurant, i) => <DisplayRestaurant key={i} restaurant={restaurant} id={i} callback={navigateMenu}/>)}
         </section>
       </main>
     )

@@ -1,40 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import useService from '../../service/useService';
+import React, { useState } from 'react';
 import './Menu.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';
-import ProductDisplay from './product-display/ProductDisplay';
+import useProductsData from '../../hooks/useProductsData';
+import ProductsRow from './products-row/productsRow';
 
 const Menu = () => {
 
-    const { product } = useService();
     const { state } = useLocation();
     const { restaurant } = state;
-    const [products, setProducts] = useState([])
+
     const navigate = useNavigate();
+
+    const products = useProductsData(restaurant?.menu);
+    
     const [openModal, setOpenModal] = useState(false);
     const [isOrder, setOrder] = useState(false);
     const [name, setName] = useState("");
-    
-   
-    useEffect(() => {
-        const fetchProducts = async () => {
-          if (restaurant?.menu) {
-            const productPromises = restaurant.menu.map(async (idP) => {
-              return await product(idP);
-            });
-      
-            const productsToSet = await Promise.all(productPromises);
-      
-            setProducts(productsToSet);
-          }
-        };
-      
-        fetchProducts();
-      }, [restaurant]);
-
 
     const productsInRows = (products) => {
+      if(products === null){ return [] }
       const productsInRows = []
       for (let i = 0; i < products.length; i += 3) {
         productsInRows.push(products.slice(i,i+3))
@@ -43,7 +28,7 @@ const Menu = () => {
     }
 
     const backToHome = () => {
-        navigate('/home');
+        navigate('/');
     }
 
     const abrirModal = () => {
@@ -52,30 +37,21 @@ const Menu = () => {
  
     const list = productsInRows(products)
 
-    const productsRow = (products) => {
-      return (
-        <>
-          <button className='volver-btn' onClick={() => backToHome()}>{" Volver"}</button>
-          { products.map((prod, i) =>
-              <ProductDisplay prod={prod} isOrder={isOrder}></ProductDisplay>
-          )}
-        </>
-      )
-      
-    }
+
 
     return (
         <main className='container'>
             <h1 className='title_menu'>Menú</h1>
+            <button className='volver-btn' onClick={() => backToHome()}> Volver </button>
             {isOrder && (
               <h2>Está pidiendo: {name} </h2>
             )}
             <div>
             {
               list.map((productsTrio, i) => {
-                return <div className='products'>{
-                  productsRow(productsTrio)
-                }</div>
+                return <section className='products'>{
+                  <ProductsRow products={productsTrio} isOrder={isOrder}/>
+                }</section>
               })
             }</div>
             {!isOrder && (
