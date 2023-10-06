@@ -7,7 +7,7 @@ const DisplayRestaurant = ({ restaurant, id, callback }) => {
         </aside>
         <header className='title-grid'>
           <h2 className='title'>{restaurant.name}</h2>
-          <p className='subtitle'>{restaurant.tipo_cocina}</p>
+          <p className='subtitle'>{restaurant.type}</p>
         </header>
         <section className='info-grid'>
           <div>
