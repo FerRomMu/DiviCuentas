@@ -1,41 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import useService from '../services/useService';
+import React, { useState } from 'react';
 import './Menu.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import CreateOrder from "../createOrder/CreateOrder";
 import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';
-import ProductDisplay from './product-display/ProductDisplay';
+import useProductsData from '../../hooks/useProductsData';
+import ProductsRow from './products-row/productsRow';
+import ModalVerDetalles from './modal-ver-detalles/ModalVerDetalles';
 
 const Menu = () => {
 
-    const { product } = useService();
     const { state } = useLocation();
     const { restaurant } = state;
-    const [products, setProducts] = useState([])
+
     const navigate = useNavigate();
+
+    const products = useProductsData(restaurant?.menu);
+    
     const [openModal, setOpenModal] = useState(false);
+    const [openDetails, setOpenDetails] = useState(false);
     const [isOrder, setOrder] = useState(false);
     const [name, setName] = useState("");
-    
-   
-    useEffect(() => {
-        const fetchProducts = async () => {
-          if (restaurant?.menu) {
-            const productPromises = restaurant.menu.map(async (idP) => {
-              return await product(idP);
-            });
-      
-            const productsToSet = await Promise.all(productPromises);
-      
-            setProducts(productsToSet);
-          }
-        };
-      
-        fetchProducts();
-      }, [restaurant]);
-
 
     const productsInRows = (products) => {
+      if(products === null){ return [] }
+
       const productsInRows = []
       for (let i = 0; i < products.length; i += 3) {
         productsInRows.push(products.slice(i,i+3))
@@ -44,49 +31,60 @@ const Menu = () => {
     }
 
     const backToHome = () => {
-        navigate('/home');
+        navigate('/');
     }
 
     const abrirModal = () => {
       setOpenModal(true);
     }
- 
-    const list = productsInRows(products)
 
-    const productsRow = (products) => {
-      return (
-        <>
-          <button className='volver-btn' onClick={() => backToHome()}>{" Volver"}</button>
-          { products.map((prod, i) =>
-              <ProductDisplay prod={prod} isOrder={isOrder}></ProductDisplay>
-          )}
-        </>
-      )
-      
+    const abrirDetalles = () => {
+      setOpenDetails(true);
+    }
+
+    const order = () => {
+      return { 
+        'owner': name,
+        'products': products.map(product => ({
+          ...product,
+          amount: () => 1
+        }))
+      }
     }
 
     return (
-        <div className='container'>
+        <main className='container'>
+          <header>
             <h1 className='title_menu'>Menú</h1>
+            <button className='volver-btn' onClick={() => backToHome()}> Volver </button>
             {isOrder && (
-              <>Está pidiendo: {name} </>
+              <h2>Está pidiendo: {name} </h2>
             )}
-            <div>
+          </header>
+          <section className='products'>
             {
-              list.map((productsTrio, i) => {
-                return <div className='products'>{
-                  productsRow(productsTrio)
-                }</div>
+              productsInRows(products).map((productsTrio, i) => {
+                return <ProductsRow products={productsTrio} isOrder={isOrder}/>
               })
-            }</div>
-            <div className={isOrder ? 'hidden' : ''}>
+            }
+          </section>
+          <footer>
+            {isOrder? 
+              <>
+                <button onClick={abrirDetalles}>Ver pedido</button>
+                {openDetails && (
+                  <ModalVerDetalles order={order()} restaurant={restaurant}/>
+                )}
+              </> : 
+              <>
                 <button onClick={abrirModal}>Crear Pedido</button>
                 {openModal && (
-                  <ModalCrearPedido setOrder={setOrder} setName={setName} ></ModalCrearPedido>
+                  <ModalCrearPedido setOrder={setOrder} setName={setName}/>
                 )}
-            </div>
-
-        </div>
+              </>
+            }
+          </footer>
+        </main>
     )
 
 }
