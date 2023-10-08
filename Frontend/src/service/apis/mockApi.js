@@ -22,7 +22,7 @@ const mockData = {
           "direction":"Av.Sarmiento 5130",
           "type":"Hamburguesas/Comida rápida",
           "image":"https://puntoapunto.com.ar/wp-content/uploads/2022/05/Burgerbeer.jpg",
-          "menu":[1,2]
+          "menu":[1,2,1,2,3,1,1]
         }
       ]
     },
