@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdac9ded-fdc9-44b7-9fc4-6493f84d5dd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/controllers/OrderController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/OrderDTO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/modelo/Order.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/persistencia/IOrderRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/service/IOrderService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/service/impl/OrderService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/components/CreateOrderMenu/createOrderMenu.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/components/createOrder/CreateOrder.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/menu/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/menu/Menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/menu/Menu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/menu/Menu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/OrderDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/OrderDTO.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,19 +64,29 @@
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Juancho/Juanes_y_los_de_camisa_negra_TP-Entrega-TP3-Spring&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;7e7a2889611b0a2cf8e308401e012603&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.DiviCuentasApplicationKt">
+    <configuration name="DiviCuentasApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ar.edu.unq.divicuentas.DiviCuentasApplicationKt" />
+      <module name="EPERS-TACTICS-TP.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiviCuentasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="EPERS-TACTICS-TP.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ar.edu.unq.divicuentas.DiviCuentasApplication" />
@@ -94,6 +94,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.DiviCuentasApplicationKt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

@@ -19,7 +19,7 @@ const ModalCrearPedido = ({ setOrder , setName}) => {
 
     return (
         <div className="modal-background">
-            <div className="modal-content">
+            <div className="modal-content bg">
                 <h2>¿Qué desea pedir?</h2>
                 <input
                     type="text"
@@ -28,7 +28,7 @@ const ModalCrearPedido = ({ setOrder , setName}) => {
                     onChange={(e) => setNombre(e.target.value)}
                     required/>
 
-                <button className='confirmar' onClick={handleConfirmar}>Confirmar</button>
+                <button onClick={handleConfirmar}>Confirmar</button>
                 {error && <p>{error}</p>}
                 {/* <div className="close-button" >
                     Cerrar

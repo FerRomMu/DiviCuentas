@@ -1,4 +1,6 @@
 import ClientDetails from './clientDetails/ClientDetails'
+import './ModalVerDetalles.css'
+
 const ModalVerDetalles = ({order, restaurant}) => {
 
     const totalSpent = () => {
@@ -6,7 +8,8 @@ const ModalVerDetalles = ({order, restaurant}) => {
     }
 
     return (
-        <section className='ver-detalles'>
+        <div className='modal-background'>
+        <section className='ver-detalles bg container-volver-btn'>
             <header>
                 <h1>{restaurant.name}</h1>
             </header>
@@ -15,10 +18,9 @@ const ModalVerDetalles = ({order, restaurant}) => {
                 <ClientDetails name={order.owner} products={order.products}/>
                 <h1>Total: <span>{ totalSpent() }</span></h1>
             </main>
-            <footer>
-                <button>Volver al pedido</button>
-            </footer>
+            <button className='volver-btn'>Volver al pedido</button>
         </section>
+        </div>
     )
 
 }

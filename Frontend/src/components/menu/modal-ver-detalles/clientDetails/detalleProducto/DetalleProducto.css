@@ -1,0 +1,7 @@
+.detalle-producto {
+    display: flex;
+}
+
+.detalle-producto > img {
+    height: 128px;
+}

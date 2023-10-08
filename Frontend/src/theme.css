@@ -3,7 +3,7 @@
 :root {
   /* Colores de fondos */
   --background-dark: #0d1117;
-  --background-ligt: #161b22;
+  --background-ligt: #1f252e;
 
   /* bordes y otros */
   --lines-grey: #89929b;
@@ -11,15 +11,23 @@
   /* Colores de letras */
   --font-primary: #4A98F7;
   --font-secondary: #c6cdd5;
+  --font-third: #98adcf;
 }
 
 * {
   margin: 0;
   font-family: 'roboto';
+  box-sizing: border-box;
 }
+
+/* Elementos HTML */
 
 header {
   margin-bottom: 10px;
+}
+
+footer {
+  padding: 15px;
 }
 
 body {
@@ -27,13 +35,89 @@ body {
 }
 
 h1 {
-  color: var(--font-primary)
+  color: var(--font-primary);
+  text-align: center;
+  padding: 15px 0;
+  font-size: 2.2rem;
 }
 
 h2 {
-  color: var(--font-primary)
+  color: var(--font-primary);
+  padding: 15px 10px;
+  font-size: 1.8rem;
 }
 
 p {
   color: var(--font-secondary)
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--font-primary);
+  border: 1px solid var(--font-primary);
+  color:var(--background-ligt);
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+main {
+  width: 100vw;
+}
+
+/* Clases especiales */
+
+.hidden {
+  display: none;
+}
+
+.subtitle {
+  color:var(--font-third);
+}
+
+.flex {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-h {
+  display: flex;
+}
+
+.bg {
+  background-color: var(--background-ligt);
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.container-volver-btn {
+  position: relative;
+}
+
+.volver-btn {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.border {
+  border: 3px white solid;
+  border-radius: 5px;
 }

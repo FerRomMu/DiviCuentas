@@ -1,0 +1,11 @@
+.ver-detalles {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 20px;
+  height: 80vh;
+  width: 90vw;
+}
+
+.ver-detalles > main {
+  width: 100%;
+}
