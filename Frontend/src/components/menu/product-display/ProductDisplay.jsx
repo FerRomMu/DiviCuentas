@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
+import usePedido from '../../../context/PedidoContext';
 import './ProductDisplay.css'
 
 const ProductDisplay = ({prod ,isOrder}) => {
 
     const [cantidadSumada, setCantidadSumada] = useState(0);
+    const { pedido, agregarProducto, quitarProducto, confirmarPedido } = usePedido();
 
-    const agregarPedido = () => {
+    const agregarPedido = (product) => {
         setCantidadSumada(cantidadSumada + 1);
+        agregarProducto(product);
       };
     
-    const quitarPedido = () => {
+    const quitarPedido = (id) => {
         if (cantidadSumada > 0) {
                   setCantidadSumada(cantidadSumada - 1);
         }
+        quitarProducto(id);
+        console.log(pedido);
     };
 
     return (
@@ -22,9 +27,9 @@ const ProductDisplay = ({prod ,isOrder}) => {
               <img src={prod ? prod.image : ''} alt=''></img>
             </div>
             <div className={isOrder ? 'product-display-amount-container' : 'hidden'}>
-              <button onClick={agregarPedido}> <span>+</span></button>
+              <button onClick={() => agregarPedido(prod)}> <span>+</span></button>
               <p className='product-display-amount'>{cantidadSumada}</p>
-              <button onClick={quitarPedido}> <span>-</span></button>
+              <button onClick={() => quitarPedido(prod.id)}> <span>-</span></button>
             </div>
             <div className='product-display-grid-info'>
               <p className='product-display-description'>{prod ? prod.description : ''}</p>
