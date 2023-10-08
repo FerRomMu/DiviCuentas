@@ -3,7 +3,7 @@ import DetalleProducto from "./detalleProducto/DetalleProducto";
 const ClientDetails = ({name, products}) => {
 
     return (
-        <section>
+        <section className="border">
             <h1>Cuenta de { name }</h1>
             { products.map((product) => <DetalleProducto product={product}/> )}
         </section>

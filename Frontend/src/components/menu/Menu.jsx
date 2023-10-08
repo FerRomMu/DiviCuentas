@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Menu.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';
 import useProductsData from '../../hooks/useProductsData';
@@ -53,22 +52,22 @@ const Menu = () => {
     }
 
     return (
-        <main className='container'>
+        <main>
           <header>
-            <h1 className='title_menu'>Menú</h1>
+            <h1 className='container-volver-btn'>Menú</h1>
             <button className='volver-btn' onClick={() => backToHome()}> Volver </button>
             {isOrder && (
               <h2>Está pidiendo: {name} </h2>
             )}
           </header>
-          <section className='products'>
+          <section className='flex'>
             {
               productsInRows(products).map((productsTrio, i) => {
                 return <ProductsRow products={productsTrio} isOrder={isOrder}/>
               })
             }
           </section>
-          <footer>
+          <footer className='flex'>
             {isOrder? 
               <>
                 <button onClick={abrirDetalles}>Ver pedido</button>

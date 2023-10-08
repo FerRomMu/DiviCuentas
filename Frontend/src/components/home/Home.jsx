@@ -1,5 +1,4 @@
 import useRestaurantsData from '../../hooks/useRestaurantsData';
-import './Home.css';
 import DisplayRestaurant from './display-restaurant/DisplayRestaurant';
 import { useNavigate } from "react-router-dom";
 
@@ -13,11 +12,11 @@ const Home = () => {
     }
 
     return(
-      <main className='container-boxes-restaurants'>
+      <main>
         <header>
-          <h1 className='title'>Restaurants</h1>
+          <h1>Restaurants</h1>
         </header>
-        <section className='restaurants'>
+        <section className='flex'>
           {restaurants?.map((restaurant, i) => <DisplayRestaurant key={i} restaurant={restaurant} id={i} callback={navigateMenu}/>)}
         </section>
       </main>
