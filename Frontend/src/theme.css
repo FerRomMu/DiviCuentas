@@ -52,6 +52,9 @@ button {
   background-color: var(--font-primary);
   border: 1px solid var(--font-primary);
   color:var(--background-ligt);
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 5px;
 }
 
 main {
@@ -73,4 +76,21 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.bg {
+  background-color: var(--background-ligt);
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
