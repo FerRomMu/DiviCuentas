@@ -17,9 +17,9 @@ class OrderDTO(
 
     companion object {
         fun toDTO(order: Order): OrderDTO {
-            val productsWithAmount = order.products.groupingBy { it }.eachCount()
-            val productsDTO = productsWithAmount.map { (product, amount) ->
-                ProductWithAmountDTO.toDTO(product, amount)
+            val productsWithAmount = order.products.groupBy { it.name }
+            val productsDTO = productsWithAmount.map { (productName, products) ->
+                ProductWithAmountDTO.toDTO(products.first(), products.size)
             }
             return OrderDTO(order.id , order.owner, productsDTO)
         }

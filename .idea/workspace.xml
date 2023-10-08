@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdac9ded-fdc9-44b7-9fc4-6493f84d5dd9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/controllers/OrderController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/controllers/OrderController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/OrderDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/OrderDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/ProductDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/ProductDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/modelo/Order.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/modelo/Order.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/service/impl/OrderService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/service/impl/OrderService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
