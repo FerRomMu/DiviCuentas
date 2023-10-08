@@ -16,6 +16,12 @@ class Order(
         cascade = [CascadeType.ALL])
     var products: MutableList<Product> = mutableListOf()
 
+    fun update(owner: String, products: MutableList<Product>): Order {
+        this.owner = owner
+        this.products = products
+        return this
+    }
+
     init {
         this.owner = owner
         this.products = products.toMutableList()

@@ -19,7 +19,10 @@ class OrderService: IOrderService {
     }
 
     override fun update(order: Order): Order {
-        return repository.save(order)
+        val existingOrder = repository.findByOwner(order.owner)
+        val updatedOrder = existingOrder.update(order.owner, order.products)
+
+        return repository.save(updatedOrder)
     }
 
     override fun getByOwner(owner: String): Order {

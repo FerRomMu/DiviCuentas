@@ -7,8 +7,9 @@
     <list default="true" id="cdac9ded-fdc9-44b7-9fc4-6493f84d5dd9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/controllers/OrderController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/controllers/OrderController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/persistencia/IOrderRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/persistencia/IOrderRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/service/IOrderService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/service/IOrderService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/OrderDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/OrderDTO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/ProductDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/mapping/dto/ProductDTO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/modelo/Order.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/modelo/Order.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/service/impl/OrderService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/ar/edu/unq/divicuentas/service/impl/OrderService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,27 +62,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Juancho/Juanes_y_los_de_camisa_negra_TP-Entrega-TP3-Spring",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "spring.configuration.checksum": "7e7a2889611b0a2cf8e308401e012603",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Juancho/Juanes_y_los_de_camisa_negra_TP-Entrega-TP3-Spring&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;7e7a2889611b0a2cf8e308401e012603&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Kotlin.DiviCuentasApplicationKt">
     <configuration name="DiviCuentasApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ar.edu.unq.divicuentas.DiviCuentasApplicationKt" />

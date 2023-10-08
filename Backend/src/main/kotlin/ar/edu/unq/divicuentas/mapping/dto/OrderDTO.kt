@@ -1,14 +1,11 @@
 package ar.edu.unq.divicuentas.mapping.dto
 
 import ar.edu.unq.divicuentas.modelo.Order
-import ar.edu.unq.divicuentas.modelo.Product
-import ar.edu.unq.divicuentas.modelo.Restaurant
-import javassist.NotFoundException
 
 class OrderDTO(
-    var id : Long?,
+    var id: Long?,
     var owner: String,
-    var products: MutableList<ProductDTO>
+    var products: List<ProductWithAmountDTO>
 ) {
 
     fun toModel(): Order {
@@ -20,10 +17,11 @@ class OrderDTO(
 
     companion object {
         fun toDTO(order: Order): OrderDTO {
-            val productsDTO = order.products.map { product ->
-                ProductDTO.toDTO(product)
+            val productsWithAmount = order.products.groupingBy { it }.eachCount()
+            val productsDTO = productsWithAmount.map { (product, amount) ->
+                ProductWithAmountDTO.toDTO(product, amount)
             }
-            return OrderDTO(order.id , order.owner, productsDTO as MutableList<ProductDTO>)
+            return OrderDTO(order.id , order.owner, productsDTO)
         }
     }
 }
