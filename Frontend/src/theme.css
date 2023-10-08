@@ -33,7 +33,7 @@ body {
 h1 {
   color: var(--font-primary);
   text-align: center;
-  padding: 20px 0;
+  padding: 15px 0;
   font-size: 2.2rem;
 }
 
@@ -78,6 +78,10 @@ main {
   align-items: center;
 }
 
+.flex-h {
+  display: flex;
+}
+
 .bg {
   background-color: var(--background-ligt);
 }
@@ -93,4 +97,14 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 999;
+}
+
+.container-volver-btn {
+  position: relative;
+}
+
+.volver-btn {
+  position: absolute;
+  top: 15px;
+  left: 10px;
 }
