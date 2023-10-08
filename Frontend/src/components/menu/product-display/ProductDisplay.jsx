@@ -12,12 +12,11 @@ const ProductDisplay = ({prod ,isOrder}) => {
         agregarProducto(product);
       };
     
-    const quitarPedido = (id) => {
+    const quitarPedido = (name) => {
         if (cantidadSumada > 0) {
                   setCantidadSumada(cantidadSumada - 1);
         }
-        quitarProducto(id);
-        console.log(pedido);
+        quitarProducto(name);
     };
 
     return (
@@ -29,7 +28,7 @@ const ProductDisplay = ({prod ,isOrder}) => {
             <div className={isOrder ? 'product-display-amount-container' : 'hidden'}>
               <button onClick={() => agregarPedido(prod)}> <span>+</span></button>
               <p className='product-display-amount'>{cantidadSumada}</p>
-              <button onClick={() => quitarPedido(prod.id)}> <span>-</span></button>
+              <button onClick={() => quitarPedido(prod.name)}> <span>-</span></button>
             </div>
             <div className='product-display-grid-info'>
               <p className='product-display-description'>{prod ? prod.description : ''}</p>

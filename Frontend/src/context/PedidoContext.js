@@ -26,11 +26,11 @@ export const PedidoProvider = ({ children }) => {
     setPedido(pedidoActualizado);
   };
 
-  const quitarProducto = (productoId) => {
+  const quitarProducto = (name) => {
     const pedidoActualizado = { ...pedido };
 
     const indiceProducto = pedidoActualizado.products.findIndex(
-      (producto) => producto.id === productoId
+      (producto) => producto.name === name
     );
 
     if (indiceProducto !== -1) {

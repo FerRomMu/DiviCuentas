@@ -7,7 +7,17 @@ const ModalVerDetalles = ({close, restaurant}) => {
     const { pedido } = usePedido()
 
     const totalSpent = () => {
-        return pedido.products.reduce((total, product) => total + product.amount * product.price, 0)
+        return pedido.products.reduce((total, product) => total + amountProduct(product) * product.price, 0)    
+    }
+
+    const amountProduct = (product) => {
+        let uniqueProductNames = new Set();
+
+        pedido.products.forEach((prod) => {
+            if (prod.name === product.name) uniqueProductNames.add(prod.name);
+        });
+
+        return uniqueProductNames.size;  
     }
 
     return (
