@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 
@@ -25,5 +26,10 @@ class OrderController {
     fun order(@PathVariable id: Long): OrderDTO {
         val order = service.getById(id) ?: throw NotFoundException("Orden no encontrada.")
         return OrderDTO.toDTO(order)
+    }
+
+    @PutMapping("/update")
+    fun updateOrder(@RequestBody orderDTO: OrderDTO): OrderDTO {
+        return OrderDTO.toDTO(service.update(orderDTO.toModel()))
     }
 }

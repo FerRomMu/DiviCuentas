@@ -18,4 +18,13 @@ class OrderService: IOrderService {
         return repository.findById(orderId).orElse(null)
     }
 
+    override fun update(order: Order): Order {
+        return repository.save(order)
+    }
+
+    override fun getByOwner(owner: String): Order {
+        return repository.findByOwner(owner)
+    }
+
+
 }
