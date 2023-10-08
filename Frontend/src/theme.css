@@ -116,3 +116,8 @@ main {
 .center {
   text-align: center;
 }
+
+.border {
+  border: 3px white solid;
+  border-radius: 5px;
+}
