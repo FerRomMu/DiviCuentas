@@ -1,7 +1,9 @@
 package ar.edu.unq.divicuentas.service.impl
 import ar.edu.unq.divicuentas.mapping.dto.ProductDTO
+import ar.edu.unq.divicuentas.modelo.Order
 import ar.edu.unq.divicuentas.modelo.Product
 import ar.edu.unq.divicuentas.modelo.Restaurant
+import ar.edu.unq.divicuentas.persistencia.IOrderRepository
 import ar.edu.unq.divicuentas.persistencia.IProductRepository
 import ar.edu.unq.divicuentas.persistencia.IRestaurantRepository
 import ar.edu.unq.divicuentas.service.IDataService
@@ -13,7 +15,8 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 class DataService(
     @Autowired private var productRepository: IProductRepository,
-    @Autowired private var restaurantRepository: IRestaurantRepository
+    @Autowired private var restaurantRepository: IRestaurantRepository,
+    @Autowired private var orderService: OrderService
 
 ) : IDataService {
 
@@ -66,6 +69,12 @@ class DataService(
         image= "https://media-cdn.tripadvisor.com/media/photo-s/1b/ce/ad/d3/la-location.jpg",
         menu = mutableListOf(producto4)
     )
+
+    private var orden1 = Order(
+        owner = "Fercho",
+        products = listOf(producto1, producto4)
+    )
+
     override fun crearSetDeDatosIniciales() {
         val productosIniciales = listOf<Product>(producto1, producto2, producto3, producto4)
 
@@ -73,6 +82,7 @@ class DataService(
 
         productRepository.saveAll(productosIniciales)
         restaurantRepository.saveAll(restaurantesIniciales)
+        orderService.create(orden1)
     }
 
     override fun eliminarTodo() {

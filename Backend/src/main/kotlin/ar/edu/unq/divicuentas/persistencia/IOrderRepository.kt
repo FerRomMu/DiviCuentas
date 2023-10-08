@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface IOrderRepository : JpaRepository<Order, Long> {
+    fun findByOwner(owner: String): Order
 }
