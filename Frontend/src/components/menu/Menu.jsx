@@ -5,6 +5,7 @@ import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';
 import useProductsData from '../../hooks/useProductsData';
 import ProductsRow from './products-row/productsRow';
 import ModalVerDetalles from './modal-ver-detalles/ModalVerDetalles';
+import {pedido, agregarProducto, quitarProducto, confirmarPedido} from '../../context/PedidoContext';
 
 const Menu = () => {
 

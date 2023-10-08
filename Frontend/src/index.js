@@ -4,16 +4,17 @@ import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import theme from "./theme";
 import App from './App';
 import { DatabaseProvider } from './context/Mocking';
+import { PedidoProvider } from './context/PedidoContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
       <ChakraProvider theme={theme}>
-        <DatabaseProvider>
+        <PedidoProvider>
           <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
           <App/>
-        </DatabaseProvider>
+        </PedidoProvider>
       </ChakraProvider>
 
   </React.StrictMode>
