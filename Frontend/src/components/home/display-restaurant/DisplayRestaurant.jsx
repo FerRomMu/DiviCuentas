@@ -3,7 +3,7 @@ import './DisplayRestaurant.css'
 const DisplayRestaurant = ({ restaurant, id, callback }) => {
 
   return(
-    <div key={id} className='display-restaurant'>
+    <div key={id} className='display-restaurant bg'>
         <aside className='display-restaurant-image-grid'>
             <img className='display-restaurant-img' src={restaurant.image} alt={ restaurant.name }/>
         </aside>

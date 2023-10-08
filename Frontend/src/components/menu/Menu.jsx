@@ -53,9 +53,9 @@ const Menu = () => {
     }
 
     return (
-        <main className='container'>
+        <main>
           <header>
-            <h1 className='title_menu container-volver-btn'>Menú</h1>
+            <h1 className='container-volver-btn'>Menú</h1>
             <button className='volver-btn' onClick={() => backToHome()}> Volver </button>
             {isOrder && (
               <h2>Está pidiendo: {name} </h2>
@@ -68,7 +68,7 @@ const Menu = () => {
               })
             }
           </section>
-          <footer>
+          <footer className='flex'>
             {isOrder? 
               <>
                 <button onClick={abrirDetalles}>Ver pedido</button>

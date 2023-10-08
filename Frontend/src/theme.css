@@ -3,7 +3,7 @@
 :root {
   /* Colores de fondos */
   --background-dark: #0d1117;
-  --background-ligt: #161b22;
+  --background-ligt: #1f252e;
 
   /* bordes y otros */
   --lines-grey: #89929b;
@@ -24,6 +24,10 @@
 
 header {
   margin-bottom: 10px;
+}
+
+footer {
+  padding: 15px;
 }
 
 body {

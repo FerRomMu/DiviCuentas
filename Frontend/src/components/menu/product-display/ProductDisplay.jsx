@@ -15,7 +15,7 @@ const ProductDisplay = ({prod ,isOrder}) => {
     };
 
     return (
-        <div className='product'>
+        <div className='product bg'>
             <h1 className='grid-title'>{prod ? prod.name : ''}</h1>
             <div className='grid-img'>
               <img className='img' src={prod ? prod.image : ''} alt=''></img>
