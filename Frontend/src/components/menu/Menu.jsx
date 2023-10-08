@@ -4,7 +4,7 @@ import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';
 import useProductsData from '../../hooks/useProductsData';
 import ProductsRow from './products-row/productsRow';
 import ModalVerDetalles from './modal-ver-detalles/ModalVerDetalles';
-import {pedido, agregarProducto, quitarProducto, confirmarPedido} from '../../context/PedidoContext';
+import usePedido from '../../context/PedidoContext';
 
 const Menu = () => {
 
@@ -18,6 +18,7 @@ const Menu = () => {
     const [openModal, setOpenModal] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
     const [isOrder, setOrder] = useState(false);
+
     const [name, setName] = useState("");
 
     const productsInRows = (products) => {
@@ -37,20 +38,17 @@ const Menu = () => {
     const abrirModal = () => {
       setOpenModal(true);
     }
+    const cerrarModal = () => {
+      setOpenModal(false)
+    }
 
     const abrirDetalles = () => {
       setOpenDetails(true);
     }
-
-    const order = () => {
-      return { 
-        'owner': name,
-        'products': products.map(product => ({
-          ...product,
-          amount: () => 1
-        }))
-      }
+    const cerrarDetalles = () => {
+      setOpenDetails(false)
     }
+
 
     return (
         <main>
@@ -73,13 +71,13 @@ const Menu = () => {
               <>
                 <button onClick={abrirDetalles}>Ver pedido</button>
                 {openDetails && (
-                  <ModalVerDetalles order={order()} restaurant={restaurant}/>
+                  <ModalVerDetalles close={ cerrarDetalles } restaurant={restaurant}/>
                 )}
               </> : 
               <>
                 <button onClick={abrirModal}>Crear Pedido</button>
                 {openModal && (
-                  <ModalCrearPedido setOrder={setOrder} setName={setName}/>
+                  <ModalCrearPedido close={ cerrarDetalles } setOrder={setOrder} setName={setName}/>
                 )}
               </>
             }

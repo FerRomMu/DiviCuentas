@@ -7,29 +7,40 @@ export const usePedido = () => {
 };
 
 export const PedidoProvider = ({ children }) => {
-  const [pedido, setPedido] = useState([]);
+  const pedidoInicial = {
+    owner: 'Ninguno',
+    products: [],
+    id: 0
+  }
+  const [pedido, setPedido] = useState(pedidoInicial);
+
+  const setName = (name) => {
+    const pedidoActualizado = { ...pedido };
+    pedidoActualizado.owner = name;
+    setPedido(pedidoActualizado)
+  }
 
   const agregarProducto = (producto) => {
-    const nuevoPedido = [...pedido, producto];
-    setPedido(nuevoPedido);
+    const pedidoActualizado = { ...pedido };
+    pedidoActualizado.products.push(producto);
+    setPedido(pedidoActualizado);
   };
 
   const quitarProducto = (productoId) => {
-    const index = pedido.findIndex(producto => producto.id === productoId);
+    const pedidoActualizado = { ...pedido };
 
-    // Si se encontró un elemento con el id proporcionado, elimínalo
-    if (index !== -1) pedido.splice(index, 1);
-    
-    setPedido(pedido);
-  };
+    const indiceProducto = pedidoActualizado.products.findIndex(
+      (producto) => producto.id === productoId
+    );
 
-  const confirmarPedido = () => {
-    // Lógica para enviar el pedido a la API
-    console.log('Pedido confirmado:', pedido);
+    if (indiceProducto !== -1) {
+      pedidoActualizado.products.splice(indiceProducto, 1);
+      setPedido(pedidoActualizado);
+    };
   };
 
   return (
-    <PedidoContext.Provider value={{ pedido, agregarProducto, quitarProducto, confirmarPedido }}>
+    <PedidoContext.Provider value={{ pedido, agregarProducto, quitarProducto, setName }}>
       {children}
     </PedidoContext.Provider>
   );

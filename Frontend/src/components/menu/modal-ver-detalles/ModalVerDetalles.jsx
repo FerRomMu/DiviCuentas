@@ -1,10 +1,13 @@
+import usePedido from '../../../context/PedidoContext'
 import ClientDetails from './clientDetails/ClientDetails'
 import './ModalVerDetalles.css'
 
-const ModalVerDetalles = ({order, restaurant}) => {
+const ModalVerDetalles = ({close, restaurant}) => {
+
+    const { pedido } = usePedido()
 
     const totalSpent = () => {
-        return order.products.reduce((total, product) => total + product.amount * product.price, 0)
+        return pedido.products.reduce((total, product) => total + product.amount * product.price, 0)
     }
 
     return (
@@ -15,10 +18,10 @@ const ModalVerDetalles = ({order, restaurant}) => {
             </header>
             <main>
                 <h2>Comensales</h2>
-                <ClientDetails name={order.owner} products={order.products}/>
+                <ClientDetails name={pedido.owner} products={pedido.products}/>
                 <h1>Total: <span>{ totalSpent() }</span></h1>
             </main>
-            <button className='volver-btn'>Volver al pedido</button>
+            <button className='volver-btn' onClick={close}>Volver al pedido</button>
         </section>
         </div>
     )

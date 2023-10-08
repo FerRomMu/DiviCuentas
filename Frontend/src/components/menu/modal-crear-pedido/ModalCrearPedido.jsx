@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ModalCrearPedido.css';
 
 
-const ModalCrearPedido = ({ setOrder , setName}) => {
+const ModalCrearPedido = ({ close, setOrder , setName}) => {
 
     const [nombre, setNombre] = useState('');
     const [error, setError] = useState('');
@@ -18,7 +18,7 @@ const ModalCrearPedido = ({ setOrder , setName}) => {
     };
 
     return (
-        <div className="modal-background">
+        <div className="modal-background" onClick={close}>
             <div className="modal-content bg">
                 <h2>¿Qué desea pedir?</h2>
                 <input
