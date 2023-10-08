@@ -18,8 +18,7 @@ const Menu = () => {
     const [openModal, setOpenModal] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
     const [isOrder, setOrder] = useState(false);
-
-    const [name, setName] = useState("");
+    const { pedido } = usePedido();
 
     const productsInRows = (products) => {
       if(products === null){ return [] }
@@ -56,7 +55,7 @@ const Menu = () => {
             <h1 className='container-volver-btn'>Menú</h1>
             <button className='volver-btn' onClick={() => backToHome()}> Volver </button>
             {isOrder && (
-              <h2>Está pidiendo: {name} </h2>
+              <h2>Está pidiendo: {pedido.owner} </h2>
             )}
           </header>
           <section className='flex'>
@@ -77,7 +76,7 @@ const Menu = () => {
               <>
                 <button onClick={abrirModal}>Crear Pedido</button>
                 {openModal && (
-                  <ModalCrearPedido close={ cerrarDetalles } setOrder={setOrder} setName={setName}/>
+                  <ModalCrearPedido close={ cerrarDetalles } setOrder={setOrder}/>
                 )}
               </>
             }

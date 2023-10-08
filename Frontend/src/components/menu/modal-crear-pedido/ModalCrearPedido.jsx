@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './ModalCrearPedido.css';
+import usePedido from '../../../context/PedidoContext';
 
 
-const ModalCrearPedido = ({ close, setOrder , setName}) => {
+const ModalCrearPedido = ({ close, setOrder}) => {
 
     const [nombre, setNombre] = useState('');
     const [error, setError] = useState('');
+    const { setName } = usePedido()
 
     const handleConfirmar = () => {
         if (!nombre.trim()) {
@@ -19,8 +21,8 @@ const ModalCrearPedido = ({ close, setOrder , setName}) => {
 
     return (
         <div className="modal-background" onClick={close}>
-            <div className="modal-content bg">
-                <h2>¿Qué desea pedir?</h2>
+            <div className="modal-content bg border">
+                <h2>¿Quién va a pedir?</h2>
                 <input
                     type="text"
                     placeholder="Ingresar un nombre"

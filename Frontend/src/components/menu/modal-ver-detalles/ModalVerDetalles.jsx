@@ -22,7 +22,7 @@ const ModalVerDetalles = ({close, restaurant}) => {
 
     return (
         <div className='modal-background'>
-        <section className='ver-detalles bg container-volver-btn'>
+        <section className='ver-detalles bg border container-volver-btn'>
             <header>
                 <h1>{restaurant.name}</h1>
             </header>
