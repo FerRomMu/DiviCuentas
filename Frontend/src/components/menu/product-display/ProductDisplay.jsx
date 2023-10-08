@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ProductDisplay.css'
 
 const ProductDisplay = ({prod ,isOrder}) => {
 
@@ -15,19 +16,19 @@ const ProductDisplay = ({prod ,isOrder}) => {
     };
 
     return (
-        <div className='product bg'>
-            <h1 className='grid-title'>{prod ? prod.name : ''}</h1>
-            <div className='grid-img'>
-              <img className='img' src={prod ? prod.image : ''} alt=''></img>
+        <div className='product-display bg'>
+            <h1 className='product-display-grid-title'>{prod ? prod.name : ''}</h1>
+            <div className='product-display-grid-img'>
+              <img src={prod ? prod.image : ''} alt=''></img>
             </div>
-            <div className={isOrder ? 'box-crear-pedido' : 'hidden'}>
-              <button className='btn' type='submit' onClick={agregarPedido}> <span>+</span></button>
-              <p className='cantidad'>{cantidadSumada}</p>
-              <button className='btn' type='submit' onClick={quitarPedido}> <span>-</span></button>
+            <div className={isOrder ? 'product-display-amount-container' : 'hidden'}>
+              <button onClick={agregarPedido}> <span>+</span></button>
+              <p className='product-display-amount'>{cantidadSumada}</p>
+              <button onClick={quitarPedido}> <span>-</span></button>
             </div>
-            <div className='grid-info'>
-              <p className='description'>{prod ? prod.description : ''}</p>
-              <p>${prod ? prod.price : ''}</p>
+            <div className='product-display-grid-info'>
+              <p className='product-display-description'>{prod ? prod.description : ''}</p>
+              <p className='center'>${prod ? prod.price : ''}</p>
             </div>
         </div>
     )

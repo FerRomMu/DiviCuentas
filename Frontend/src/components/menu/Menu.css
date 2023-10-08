@@ -1,35 +1,7 @@
-.box-crear-pedido {
-    display: flex;
-    justify-content: space-evenly;
-}
-
 .cantidad {
     align-self: center;
 }
 
-
-
-.product {
-    display: grid;
-    grid-template-columns: 1fr; 
-    grid-template-rows: 0.3fr 0.6fr 1fr;
-    margin: 10px;
-    width: 28vw;
-    border: 3px white solid;
-    border-radius: 5px;
-    grid-template-areas: 
-      "grid-title"
-      "grid-img"
-      "grid-info"
-}
-
-.grid-title { 
-    padding: 15px;
-    font-size: 25px;
-    font-weight: 600;
-    grid-area: grid-title;
-    border-bottom: 2px white solid;
-}
 .grid-img { 
     grid-area: grid-img;
     max-width: 28vw;
@@ -43,14 +15,7 @@
 .img {
     max-height: 150px;
 }
-.grid-info { 
-    padding: 20px;
-    grid-area: grid-info; 
-    display: flex;
-    flex-direction: column;
-    border-bottom: 2px white solid;
-    height: 100%;
-}
+
 .description { 
     flex: 1;
     border-bottom: 2px white solid;

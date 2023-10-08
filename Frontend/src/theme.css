@@ -112,3 +112,7 @@ main {
   top: 15px;
   left: 10px;
 }
+
+.center {
+  text-align: center;
+}
