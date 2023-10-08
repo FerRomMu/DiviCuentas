@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Menu.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ModalCrearPedido from './modal-crear-pedido/ModalCrearPedido';
 import useProductsData from '../../hooks/useProductsData';
