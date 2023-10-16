@@ -66,20 +66,22 @@ const Menu = () => {
             }
           </section>
           <footer className='flex'>
-            {isOrder? 
+            {isOrder && ( 
               <>
                 <button onClick={abrirDetalles}>Ver pedido</button>
                 {openDetails && (
                   <ModalVerDetalles close={ cerrarDetalles } restaurant={restaurant}/>
                 )}
-              </> : 
-              <>
-                <button onClick={abrirModal}>Crear Pedido</button>
-                {openModal && (
-                  <ModalCrearPedido close={ cerrarDetalles } setOrder={setOrder}/>
-                )}
               </>
-            }
+            )}
+            <>
+              <button onClick={abrirModal}>
+                {isOrder ? "AgregarPersona" : "Crear Pedido" }
+              </button>
+              {openModal && (
+                <ModalCrearPedido close={ cerrarDetalles } setOrder={ setOrder } setOpenModal= { setOpenModal } />
+              )}
+            </>
           </footer>
         </main>
     )

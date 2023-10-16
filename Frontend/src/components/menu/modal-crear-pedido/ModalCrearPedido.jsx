@@ -3,7 +3,7 @@ import './ModalCrearPedido.css';
 import usePedido from '../../../context/PedidoContext';
 
 
-const ModalCrearPedido = ({ close, setOrder}) => {
+const ModalCrearPedido = ({ close, setOrder, setOpenModal}) => {
 
     const [nombre, setNombre] = useState('');
     const [error, setError] = useState('');
@@ -14,7 +14,8 @@ const ModalCrearPedido = ({ close, setOrder}) => {
             setError('Debe ingresar un nombre.');
           } else {
             setError('');
-            setOrder(true)
+            setOrder(true);
+            setOpenModal(false);
             setName(nombre);
           }
     };
