@@ -1,15 +1,17 @@
 import './DetalleProducto.css'
 
-const DetalleProducto = ({product}) => {
 
-    return (
-        <section className='detalle-producto'>
-            <img src={ product.image }/>
-            <p>{ product.name }</p>
-            <p>{ product.amount }</p>
-            <p>{ product.price }</p>
-        </section>
-    )
+    const DetalleProducto = ({ product, cantidad }) => {
+        return (
+            <section className='detalle-producto'>
+                <img src={product.image} alt={product.name} />
+                <div>
+                    <p>{product.name}</p>
+                    <p>Precio: {product.price}</p>
+                    <p>Cantidad: {cantidad}</p>
+                </div>
+            </section>
+        );
 
 }
 
