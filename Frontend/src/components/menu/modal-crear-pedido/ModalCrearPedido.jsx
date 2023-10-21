@@ -8,6 +8,7 @@ const ModalCrearPedido = ({ close, setOrder, setOpenModal}) => {
     const [nombre, setNombre] = useState('');
     const [error, setError] = useState('');
     const { setName } = usePedido()
+    const { agregarPersona } = usePedido();
 
     const handleConfirmar = () => {
         if (!nombre.trim()) {
@@ -16,7 +17,8 @@ const ModalCrearPedido = ({ close, setOrder, setOpenModal}) => {
             setError('');
             setOrder(true);
             setOpenModal(false);
-            setName(nombre);
+            // setName(nombre);
+            agregarPersona(nombre);
           }
     };
 

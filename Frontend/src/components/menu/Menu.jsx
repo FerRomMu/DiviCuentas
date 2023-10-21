@@ -75,12 +75,13 @@ const Menu = () => {
               </>
             )}
             <>
-              <button onClick={abrirModal}>
-                {isOrder ? "AgregarPersona" : "Crear Pedido" }
-              </button>
-              {openModal && (
-                <ModalCrearPedido close={ cerrarDetalles } setOrder={ setOrder } setOpenModal= { setOpenModal } />
-              )}
+                <div style={{ margin: '10px' }}></div> {/* Espacio en blanco */}
+                <button onClick={abrirModal}>
+                    {isOrder ? "AgregarPersona" : "Crear Pedido" }
+                </button>
+                {openModal && (
+                    <ModalCrearPedido close={ cerrarDetalles } setOrder={ setOrder } setOpenModal= { setOpenModal } />
+                )}
             </>
           </footer>
         </main>

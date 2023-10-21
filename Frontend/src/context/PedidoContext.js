@@ -9,7 +9,7 @@ export const usePedido = () => {
 export const PedidoProvider = ({ children }) => {
   const pedidoInicial = {
     owner: 'Ninguno',
-    products: [],
+    personas : new Map(),
     id: 0
   }
   const [pedido, setPedido] = useState(pedidoInicial);
@@ -20,27 +20,41 @@ export const PedidoProvider = ({ children }) => {
     setPedido(pedidoActualizado)
   }
 
-  const agregarProducto = (producto) => {
+  const agregarPersona = (name) => {
     const pedidoActualizado = { ...pedido };
-    pedidoActualizado.products.push(producto);
-    setPedido(pedidoActualizado);
+    pedidoActualizado.owner = name
+    pedidoActualizado.personas.set(name, new Map())
+    setPedido(pedidoActualizado)
+  }
+
+  const agregarProducto = (producto, name) => {
+      const pedidoActualizado = { ...pedido }
+      if (pedidoActualizado.personas.has(name)) {
+        const persona = pedidoActualizado.personas.get(name);
+        if (persona.has(producto)) {
+          const cantidadExistente = persona.get(producto);
+          persona.set(producto, cantidadExistente + 1);
+        } else {
+          persona.set(producto, 1);
+        }
+      }
+      setPedido(pedidoActualizado);
   };
+    const quitarProducto = (product, nombrePersona) => {
+      const pedidoActualizado = { ...pedido };
 
-  const quitarProducto = (name) => {
-    const pedidoActualizado = { ...pedido };
-
-    const indiceProducto = pedidoActualizado.products.findIndex(
-      (producto) => producto.name === name
-    );
-
-    if (indiceProducto !== -1) {
-      pedidoActualizado.products.splice(indiceProducto, 1);
+      if (pedidoActualizado.personas.has(nombrePersona)) {
+        const productos = pedidoActualizado.personas.get(nombrePersona);
+        if (productos.has(product)) {
+          productos.delete(product);
+        }
+      }
       setPedido(pedidoActualizado);
     };
-  };
+
 
   return (
-    <PedidoContext.Provider value={{ pedido, agregarProducto, quitarProducto, setName }}>
+    <PedidoContext.Provider value={{ pedido, agregarProducto, quitarProducto, setName, agregarPersona }}>
       {children}
     </PedidoContext.Provider>
   );
