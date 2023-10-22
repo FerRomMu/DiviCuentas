@@ -5,6 +5,8 @@ import useProductsData from '../../hooks/useProductsData';
 import ProductsRow from './products-row/productsRow';
 import ModalVerDetalles from './modal-ver-detalles/ModalVerDetalles';
 import usePedido from '../../context/PedidoContext';
+import ModalVerPersonas from './modal-ver-personas/ModalVerPersonas';
+import './Menu.css'
 
 const Menu = () => {
 
@@ -17,8 +19,10 @@ const Menu = () => {
     
     const [openModal, setOpenModal] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
+    const [openDetailsPersonas, setOpenDetailsPersonas] = useState(false);
     const [isOrder, setOrder] = useState(false);
     const { pedido } = usePedido();
+    const [verComensales, setVerComensales] = useState(false);
 
     const productsInRows = (products) => {
       if(products === null){ return [] }
@@ -37,6 +41,15 @@ const Menu = () => {
     const abrirModal = () => {
       setOpenModal(true);
     }
+
+    const abrirDetallesPersonas = () =>{
+      setOpenDetailsPersonas(true)
+    }
+
+    const cerrarDetallesPersonas = () =>{
+      setOpenDetailsPersonas(false)
+    }
+
     const cerrarModal = () => {
       setOpenModal(false)
     }
@@ -65,24 +78,34 @@ const Menu = () => {
               })
             }
           </section>
-          <footer className='flex'>
-            {isOrder && ( 
-              <>
-                <button onClick={abrirDetalles}>Ver pedido</button>
-                {openDetails && (
-                  <ModalVerDetalles close={ cerrarDetalles } restaurant={restaurant}/>
+          <footer className='flex-h menu-footer'>
+            <div className='flex-h menu-div-btns'>
+                {isOrder && ( 
+                  <>
+                    <button onClick={abrirDetalles}>Ver pedido</button>
+                    {openDetails && (
+                      <ModalVerDetalles close={ cerrarDetalles } restaurant={restaurant}/>
+                    )}
+                  </>
                 )}
-              </>
-            )}
-            <>
-                <div style={{ margin: '10px' }}></div> {/* Espacio en blanco */}
-                <button onClick={abrirModal}>
-                    {isOrder ? "AgregarPersona" : "Crear Pedido" }
-                </button>
-                {openModal && (
-                    <ModalCrearPedido close={ cerrarDetalles } setOrder={ setOrder } setOpenModal= { setOpenModal } />
+
+                {isOrder && ( 
+                  <>
+                    <button onClick={abrirDetallesPersonas}>Ver comensales</button>
+                        {openDetailsPersonas && (
+                            <ModalVerPersonas close={ cerrarDetallesPersonas } restaurant={restaurant}/>
+                        )}
+                  </>
                 )}
-            </>
+                <>
+                    <button onClick={abrirModal}>
+                        {isOrder ? "AgregarPersona" : "Crear Pedido" }
+                    </button>
+                    {openModal && (
+                        <ModalCrearPedido close={ cerrarDetalles } setOrder={ setOrder } setOpenModal= { setOpenModal } />
+                    )}
+                </>
+            </div>
           </footer>
         </main>
     )

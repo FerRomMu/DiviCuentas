@@ -1,0 +1,9 @@
+.menu-footer {
+    width: 100%;
+    justify-content: center;
+}
+
+.menu-div-btns {
+    justify-content: space-evenly;
+    width: 50%;
+}

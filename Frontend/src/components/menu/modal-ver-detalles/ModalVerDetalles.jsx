@@ -16,6 +16,8 @@ const ModalVerDetalles = ({close, restaurant}) => {
         return total;
     }
 
+    console.log(pedido.personas.entries())
+
     const totalPorPersona = () => {
         const totales = {};
         for (const [name, productsMap] of pedido.personas.entries()) {
