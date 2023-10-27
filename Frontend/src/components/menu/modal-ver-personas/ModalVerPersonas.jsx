@@ -31,7 +31,7 @@ const ModalVerPersonas = ({close, restaurant}) => {
                     <h2>Comensales</h2>
                     <div className='mvp-ul'>
                         {personas.map((nombre, index) => (
-                          <CheckboxListPersonas owner={ pedido.owner } name={nombre} onMark={markComensal} index={index}/>
+                          <CheckboxListPersonas name={nombre} onMark={markComensal} index={index}/>
                         ))}
                     </div>
                 </main>

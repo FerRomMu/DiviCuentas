@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const CheckboxListPersonas = ({owner, name, onMark, index}) => {
+const CheckboxListPersonas = ({ name, onMark, index}) => {
 
-  const [mark, setMark] = useState(owner === name)
+  const [mark, setMark] = useState(false)
   const handleCheckboxChange = () => {
     onMark(index, !mark)
     setMark(!mark)
