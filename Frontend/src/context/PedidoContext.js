@@ -10,6 +10,7 @@ export const PedidoProvider = ({ children }) => {
   const pedidoInicial = {
     owner: 'Ninguno',
     personas : new Map(),
+    soloPersonas : [],
     id: 0
   }
   const [pedido, setPedido] = useState(pedidoInicial);
@@ -23,7 +24,26 @@ export const PedidoProvider = ({ children }) => {
   const agregarPersona = (name) => {
     const pedidoActualizado = { ...pedido };
     pedidoActualizado.owner = name
+    pedidoActualizado.soloPersonas.push(name)
     pedidoActualizado.personas.set(name, new Map())
+    setPedido(pedidoActualizado)
+  }
+
+  const parseNames = (names) => {
+    const last = names.pop()
+    const name = names.length !== 0 ? names.join(', ') + ' y ' + last : last
+    console.log(name)
+    return name
+  }
+
+  const cambiarQuienesPiden = (names) => {
+    const pedidoActualizado = { ...pedido };
+    const name = Array.isArray(names)? parseNames(names) : names
+    console.log(name)
+    pedidoActualizado.owner = name
+    if (!pedidoActualizado.personas.has(name)) {
+      pedidoActualizado.personas.set(name, new Map());
+    }
     setPedido(pedidoActualizado)
   }
 
@@ -54,7 +74,7 @@ export const PedidoProvider = ({ children }) => {
 
 
   return (
-    <PedidoContext.Provider value={{ pedido, agregarProducto, quitarProducto, setName, agregarPersona }}>
+    <PedidoContext.Provider value={{ pedido, cambiarQuienesPiden, agregarProducto, quitarProducto, setName, agregarPersona }}>
       {children}
     </PedidoContext.Provider>
   );
