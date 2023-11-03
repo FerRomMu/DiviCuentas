@@ -6,6 +6,7 @@ import ProductsRow from './products-row/productsRow';
 import ModalVerDetalles from './modal-ver-detalles/ModalVerDetalles';
 import usePedido from '../../context/PedidoContext';
 import ModalVerPersonas from './modal-ver-personas/ModalVerPersonas';
+import ModalCancelarPedido from './modal-cancelar-pedido/ModalCancelarPedido';
 import './Menu.css'
 
 const Menu = () => {
@@ -20,6 +21,7 @@ const Menu = () => {
     const [openModal, setOpenModal] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
     const [openDetailsPersonas, setOpenDetailsPersonas] = useState(false);
+    const [openCloseOrder, setCloseOrder] = useState(false);
     const [isOrder, setOrder] = useState(false);
     const { pedido } = usePedido();
     const [verComensales, setVerComensales] = useState(false);
@@ -61,16 +63,30 @@ const Menu = () => {
       setOpenDetails(false)
     }
 
+    const abrirCancelarPedido = () => {
+      setCloseOrder(true)
+    }
+
+    const cerrarCancelarPedido = () => {
+      setCloseOrder(false)
+    }
 
     return (
         <main>
           <header>
             <h1 className='container-volver-btn'>Menú</h1>
-            <button className='volver-btn' onClick={() => backToHome()}> Volver </button>
+            <button className='volver-btn' onClick={() => isOrder? abrirCancelarPedido() : backToHome()}> 
+              {isOrder? "Cancelar pedido" : "Volver"} 
+            </button>
             {isOrder && (
               <h2>Está pidiendo: {pedido.owner} </h2>
             )}
           </header>
+          <div>
+            {openCloseOrder && (
+              <ModalCancelarPedido close= {cerrarCancelarPedido} setOrder= {setOrder}/>
+            )}
+          </div>
           <section className='flex'>
             {
               productsInRows(products).map((productsTrio, i) => {
