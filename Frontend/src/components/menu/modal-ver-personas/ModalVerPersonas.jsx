@@ -14,6 +14,7 @@ const ModalVerPersonas = ({close, restaurant}) => {
     }
 
     const cambiarPedidores = () => {
+      if (Array.from(pidiendo.entries()).filter(([, valor]) => valor).length === 0) { return; }
       const nuevosPedidores = Array.from(pidiendo.entries())
         .filter(([, valor]) => valor)
         .sort((a, b) => a[0] - b[0])
