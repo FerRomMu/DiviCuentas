@@ -52,7 +52,7 @@ const FinalizarPedido = () => {
                 </main>
                 <div className='fp-buttons'>
                   <button onClick={() => handlePagoRealizado()}>
-                    Pago Realizao
+                    Pago Realizado
                   </button>
                 </div>
             </section>
