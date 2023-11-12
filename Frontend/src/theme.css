@@ -109,6 +109,12 @@ button {
   left: 10px;
 }
 
+.finalizar-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
 .center {
   text-align: center;
 }

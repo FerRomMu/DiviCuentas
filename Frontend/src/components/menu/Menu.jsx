@@ -8,6 +8,7 @@ import usePedido from '../../context/PedidoContext';
 import ModalVerPersonas from './modal-ver-personas/ModalVerPersonas';
 import ModalCancelarPedido from './modal-cancelar-pedido/ModalCancelarPedido';
 import './Menu.css'
+import ModalFinalizarPedido from './modal-finalizar-pedido/ModalFinalizarPedido';
 
 const Menu = () => {
 
@@ -22,6 +23,7 @@ const Menu = () => {
     const [openDetails, setOpenDetails] = useState(false);
     const [openDetailsPersonas, setOpenDetailsPersonas] = useState(false);
     const [openCloseOrder, setCloseOrder] = useState(false);
+    const [openFinalizarOrden, setFinalizarOrden] = useState(false);
     const [isOrder, setOrder] = useState(false);
     const { pedido } = usePedido();
     const [verComensales, setVerComensales] = useState(false);
@@ -71,6 +73,14 @@ const Menu = () => {
       setCloseOrder(false)
     }
 
+    const abrirModalFinalizarPedido = () => {
+      setFinalizarOrden(true)
+    }
+
+    const cerrarFinalizarPedido = () => {
+      setFinalizarOrden(false)
+    }
+
     return (
         <main>
           <header>
@@ -79,12 +89,22 @@ const Menu = () => {
               {isOrder? "Cancelar pedido" : "Volver"} 
             </button>
             {isOrder && (
+              <button className='finalizar-btn' onClick={() => abrirModalFinalizarPedido()}> 
+                "Finalizar Pedido"
+              </button>
+            )}
+            {isOrder && (
               <h2>Está pidiendo: {pedido.owner} </h2>
             )}
           </header>
           <div>
             {openCloseOrder && (
               <ModalCancelarPedido close= {cerrarCancelarPedido} setOrder= {setOrder}/>
+            )}
+          </div>
+          <div>
+            {openFinalizarOrden && (
+              <ModalFinalizarPedido close= {cerrarFinalizarPedido} setOrder= {setOrder} restaurant={restaurant}/>
             )}
           </div>
           <section className='flex'>
