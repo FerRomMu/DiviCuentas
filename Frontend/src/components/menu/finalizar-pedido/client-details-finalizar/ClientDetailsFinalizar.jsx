@@ -42,8 +42,12 @@ const ClientDetailsFinalizar = ({pedido}) => {
                             Array.from(productosMap.entries()).map(([producto, cantidad]) => (
                                 <div key={producto.id}>
                                     <p>{producto.name}: {producto.price}</p>
-                                    {/* <p>Cantidad: {cantidad}</p> */}
-                                    {/* <p>Total a Pagar: {producto.price * cantidad}</p> */}
+                                    {name.split(/, | y /).length === 1 ? (
+                                        <p>Total a Pagar: {producto.price * cantidad + totalPersona}</p>
+                                    ) : (
+                                        <p></p>
+                                    )}
+
                                     <hr />
                                 </div>
                             ))
