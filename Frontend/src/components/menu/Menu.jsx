@@ -90,7 +90,7 @@ const Menu = () => {
             </button>
             {isOrder && (
               <button className='finalizar-btn' onClick={() => abrirModalFinalizarPedido()}> 
-                "Finalizar Pedido"
+                Finalizar Pedido
               </button>
             )}
             {isOrder && (
