@@ -66,7 +66,8 @@ export const PedidoProvider = ({ children }) => {
       if (pedidoActualizado.personas.has(nombrePersona)) {
         const productos = pedidoActualizado.personas.get(nombrePersona);
         if (productos.has(product)) {
-          productos.delete(product);
+          const currentValue = productos.get(product);
+          currentValue > 1 ? productos.set(product, currentValue - 1) : productos.delete(product);
         }
       }
       setPedido(pedidoActualizado);
