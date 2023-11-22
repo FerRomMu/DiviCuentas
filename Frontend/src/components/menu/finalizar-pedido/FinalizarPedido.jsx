@@ -24,18 +24,6 @@ const FinalizarPedido = () => {
         return total;
     }
 
-    /*const totalPorPersona = () => {
-        const totales = {};
-        for (const [name, productsMap] of pedido.personas.entries()) {
-            let totalPersona = 0;
-            for (const [product, cantidad] of productsMap.entries()) {
-                totalPersona += cantidad * product.price;
-            }
-            totales[name] = totalPersona;
-        }
-        return totales;
-    }*/
-
     return (
         <div className='modal-background'>
             <section className='ver-detalles bg border container-volver-btn'>
@@ -44,7 +32,7 @@ const FinalizarPedido = () => {
                 </header>
                 <main>
                     <h2>Comensales</h2>
-                    <ClientDetailsFinalizar/>
+                    <ClientDetailsFinalizar comensales={ pedido.soloPersonas }/>
                     <h1>Total del Pedido: <span>{totalSpent()}</span></h1>
                 </main>
                 <div className='fp-buttons'>
