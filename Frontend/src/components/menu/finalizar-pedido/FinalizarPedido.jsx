@@ -16,7 +16,7 @@ const FinalizarPedido = () => {
 
     const totalSpent = () => {
         let total = 0;
-        for (const [name, productsMap] of pedido.personas.entries()) {
+        for (const [, productsMap] of pedido.personas.entries()) {
             for (const [product, cantidad] of productsMap.entries()) {
                 total += cantidad * product.price;
             }
@@ -24,7 +24,7 @@ const FinalizarPedido = () => {
         return total;
     }
 
-    const totalPorPersona = () => {
+    /*const totalPorPersona = () => {
         const totales = {};
         for (const [name, productsMap] of pedido.personas.entries()) {
             let totalPersona = 0;
@@ -34,7 +34,7 @@ const FinalizarPedido = () => {
             totales[name] = totalPersona;
         }
         return totales;
-    }
+    }*/
 
     return (
         <div className='modal-background'>
@@ -44,11 +44,8 @@ const FinalizarPedido = () => {
                 </header>
                 <main>
                     <h2>Comensales</h2>
-                    <ClientDetailsFinalizar pedido={pedido} />
+                    <ClientDetailsFinalizar/>
                     <h1>Total del Pedido: <span>{totalSpent()}</span></h1>
-                    {Object.keys(totalPorPersona).map((name, index) => (
-                        <p key={index}>{name}: {totalPorPersona[name]}</p>
-                    ))}
                 </main>
                 <div className='fp-buttons'>
                   <button onClick={() => handlePagoRealizado()}>
