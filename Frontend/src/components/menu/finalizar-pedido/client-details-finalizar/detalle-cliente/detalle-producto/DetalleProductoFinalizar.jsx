@@ -1,16 +1,19 @@
 import './DetalleProductoFinalizar.css'
 
+const DetalleProductoFinalizar = ({ products }) => {
+  const dividedBeetwen = (product) => product.sharedAmount > 1 ? ` (dividido entre ${ product.sharedAmount}) ` : ""
 
-    const DetalleProductoFinalizar = ({ product, cantidad }) => {
-        return (
-            <section >
-                <div className='detalle-producto'>
-                  <p>
-                    * {product.name} X{cantidad} ${product.price}
-                  </p>               
-                </div>
-            </section>
-        );
+  return (
+    <section >
+      <div className='detalle-producto-finalizar'>
+          {
+            products.map( (product) => {
+              return <p> * {product.name} X{product.amount}{dividedBeetwen(product)} ${product.price}</p>
+            })
+          }
+      </div>
+    </section>
+  );
 
 }
 

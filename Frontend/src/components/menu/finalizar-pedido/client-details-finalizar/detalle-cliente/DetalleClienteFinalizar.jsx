@@ -1,4 +1,4 @@
-import DetalleProducto from "./detalle-producto/DetalleProductoFinalizar";
+import DetalleProductoFinalizar from "./detalle-producto/DetalleProductoFinalizar";
 import usePedido from '../../../../../context/PedidoContext'
 
 const FinalClientDetails = ({name}) => {
@@ -8,9 +8,9 @@ const FinalClientDetails = ({name}) => {
 
   function keysWithName() {
     const keys = Array.from(pedido.personas.keys())
-    const filtered = keys.filter(item => item.includes(name));
-    console.log("filtered")
-    console.log(filtered)
+    const filtered = keys.filter(key => key.includes(name));
+    //Dejo la logica que si alguien la quiere pasar a javascript funca pa los nombres incluidos como f en fer
+    //const filtered = keys.filter(key => key.split(/, | y /).any { n => n.includes(name) });
     return filtered
   }
 
@@ -28,8 +28,6 @@ const FinalClientDetails = ({name}) => {
           sharedAmount: splitedBy(key)
       };
     });
-    console.log("updatedArray")
-    console.log(updatedArray)
     return updatedArray
   }
 
@@ -47,28 +45,16 @@ const FinalClientDetails = ({name}) => {
 
   const totalAPagar = () => {
     const total = allProducts().reduce((accumulator, product) => {
-      console.log("acaaaa")
-      console.log("acaaa")
-      console.log("acaa")
-      console.log("acaaaa")
-      console.log(product.price)
-      console.log(product.amount)
-      console.log(product.sharedAmount)
-      console.log(accumulator)
       return accumulator + ((product.price * product.amount) / product.sharedAmount);
     }, 0)
-    console.log("total")
-    console.log(total)
+
     return total
   }
 
   return (
     <div key={name}>
         <h1>Cuenta de {name}</h1>
-        {//Array.from(productsMap.entries()).map(([product, cantidad]) => (
-          //  <DetalleProducto key={product.id} product={product} cantidad={cantidad} />
-        //))
-        }
+          <DetalleProductoFinalizar products={allProducts()}/>
         <h2>Total a pagar por {name}: ${totalAPagar()}</h2>
     </div>
 
