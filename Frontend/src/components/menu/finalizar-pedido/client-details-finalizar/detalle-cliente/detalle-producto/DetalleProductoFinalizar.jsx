@@ -8,7 +8,7 @@ const DetalleProductoFinalizar = ({ products }) => {
       <div className='detalle-producto-finalizar'>
           {
             products.map( (product) => {
-              return <p> * {product.name} X{product.amount}{dividedBeetwen(product)} ${product.price}</p>
+              return <p> * {product.name} X{product.amount}{dividedBeetwen(product)} ${(product.price * product.amount) / product.sharedAmount}</p>
             })
           }
       </div>
