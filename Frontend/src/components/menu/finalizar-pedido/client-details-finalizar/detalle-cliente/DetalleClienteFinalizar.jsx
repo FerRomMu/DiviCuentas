@@ -55,7 +55,7 @@ const FinalClientDetails = ({name, propina}) => {
     <div key={name}>
         <h1>Cuenta de {name}</h1>
           <DetalleProductoFinalizar products={allProducts()} propina={ propina }/>
-        <h2>Total a pagar por {name}: ${totalAPagar()}</h2>
+        <h2>Total a pagar por {name}: ${(totalAPagar() + propina).toFixed(2) }</h2>
     </div>
 
   )

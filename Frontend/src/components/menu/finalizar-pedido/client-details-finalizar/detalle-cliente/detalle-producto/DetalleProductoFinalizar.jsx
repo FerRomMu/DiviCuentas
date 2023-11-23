@@ -11,7 +11,7 @@ const DetalleProductoFinalizar = ({ products, propina }) => {
               {products.map( (product) => {
                 return <p> * {product.name} X{product.amount}{dividedBeetwen(product)} ${(product.price * product.amount) / product.sharedAmount}</p>
               })}
-              <p> * Propina ${ propina }</p>
+              <p> * Propina ${ propina.toFixed(2) }</p>
             </>
           }
       </div>

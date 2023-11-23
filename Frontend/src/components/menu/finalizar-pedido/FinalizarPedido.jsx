@@ -49,7 +49,7 @@ const FinalizarPedido = () => {
                       onChange={handlePropinaChange}
                     />
                   </section>
-                  <h1>Total del Pedido: <span>{totalSpent()}</span></h1>
+                  <h1>Total del Pedido: <span>{totalSpent() + propina }</span></h1>
               </main>
               <div className='fp-buttons'>
                 <button onClick={() => handlePagoRealizado()}>
