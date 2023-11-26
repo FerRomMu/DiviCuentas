@@ -35,27 +35,32 @@ body {
 }
 
 h1 {
-  color: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Ajusta según sea necesario */
+  font-weight: normal; /* Ajusta según sea necesario */
+  font-family: 'Agency FB';
+  color: white;
   text-align: center;
-  padding: 15px 0;
-  font-size: 2.2rem;
+  padding: 15px 20px; /* Ajusta el espaciado según sea necesario */
+  font-size: 3rem;
+  background: rgba(0, 0, 0, 0.5); /* Color y opacidad del fondo, ajusta según tus preferencias */
 }
 
 h2 {
-  color: var(--font-primary);
+  color: black;
   padding: 15px 10px;
   font-size: 1.8rem;
 }
 
 p {
-  color: var(--font-secondary)
+  color: black
 }
 
 button {
   cursor: pointer;
-  background-color: var(--font-primary);
-  border: 1px solid var(--font-primary);
-  color:var(--background-ligt);
+  background-color: black;
+  border: 1px solid dimgrey;
+  color:white;
   padding: 10px;
   font-weight: 600;
   border-radius: 5px;
