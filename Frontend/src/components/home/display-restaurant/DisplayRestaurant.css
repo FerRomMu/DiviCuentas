@@ -1,7 +1,9 @@
 body {
   background: url('../../../images/222b6fa8366ea0b9895595e3eb30bb88.jpg') center/cover repeat;
   margin: 0;
-  height: 100vh;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  min-height: 100vh;
 }
 .display-restaurant {
     width: 50%;

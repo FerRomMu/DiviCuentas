@@ -121,7 +121,7 @@ button {
   position: absolute;
   top: 15px;
   left: 10px;
-  height: 7%;
+  height: 60px;
   width: 10%;
   font-size: 18px;
   border-width: 2px ;
@@ -132,7 +132,7 @@ button {
   position: absolute;
   top: 15px;
   right: 20px;
-  height: 7%;
+  height: 60px;
   width: 10%;
   font-size: 18px;
   border-width: 2px ;
