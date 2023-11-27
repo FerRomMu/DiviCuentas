@@ -42,8 +42,9 @@ const FinalizarPedido = () => {
                   <h2>Comensales</h2>
                   <ClientDetailsFinalizar comensales={ pedido.soloPersonas } propina={ propina }/>
                   <section class="tip-section">
-                    <label for="tipAmount">Propina a dejar:</label>
+                    <label className='label-propina' for="tipAmount">Propina a dejar:</label>
                     <input
+                      className='input-prop'
                       type="text"
                       id="tipAmount"
                       value={propina}

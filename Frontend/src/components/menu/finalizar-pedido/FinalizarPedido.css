@@ -5,3 +5,25 @@
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+.label-propina {
+  color: black;
+  padding: 15px 10px;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: Helvetica;
+}
+
+.tip-section {
+  margin: 15px 0 15px 0;
+}
+
+.input-prop {
+  border-radius: 5px;
+  border: 1px solid black;
+  width: auto;
+  height: 25px;
+  outline: none;
+  padding: 8px;
+  font-size: 19px;
+}
