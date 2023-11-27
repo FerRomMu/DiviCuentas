@@ -21,6 +21,7 @@ const FinalizarPedido = () => {
     setPropina(isNaN(newPropina) ? 0 : newPropina);
   };
 
+  
   const totalSpent = () => {
       let total = 0;
       for (const [, productsMap] of pedido.personas.entries()) {
@@ -59,6 +60,7 @@ const FinalizarPedido = () => {
           </section>
       </div>
   )
+
 
 }
 

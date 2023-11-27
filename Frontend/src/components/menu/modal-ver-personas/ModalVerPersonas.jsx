@@ -36,10 +36,10 @@ const ModalVerPersonas = ({close, restaurant}) => {
                         ))}
                     </div>
                 </main>
-                <button className='volver-btn' onClick={close}>Volver al pedido</button>
-                <h2>Esta pidiendo: { pedido.owner } </h2>
+                <button className='volver-btn' onClick={close} style={{height: '60px', width: '130px', marginLeft: '20px'}}>Volver al pedido</button>
+                <h2 className="highlight-text">Esta pidiendo: {pedido.owner} </h2>
                 <footer>
-                  <button onClick={cambiarPedidores}>Cambiar quien pide</button>
+                  <button onClick={cambiarPedidores} style={{height: '60px', width: '130px'}}>Cambiar quien pide</button>
                 </footer>
             </section>
         </div>

@@ -9,15 +9,17 @@ const CheckboxListPersonas = ({ name, onMark, index}) => {
   }
 
   return (
-    <div key={name}>
-      <p>
-      <input
-        type="checkbox"
-        checked={mark}
-        onChange={() => handleCheckboxChange(name)}
-      />
-      {name}</p>
-    </div>
+      <div key={name}>
+          <p>
+              <input
+                  type="checkbox"
+                  checked={mark}
+                  onChange={() => handleCheckboxChange(name)}
+                  style={{ marginRight: '7px', width: '18px', height: '18px'}}
+              />
+              {name}
+          </p>
+      </div>
   )
 
 }

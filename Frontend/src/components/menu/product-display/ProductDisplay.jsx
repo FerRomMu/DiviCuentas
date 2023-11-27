@@ -28,9 +28,25 @@ const ProductDisplay = ({prod ,isOrder}) => {
               <img src={prod ? prod.image : ''} alt=''></img>
             </div>
             <div className={isOrder ? 'product-display-amount-container' : 'hidden'}>
-              <button onClick={() => agregarPedido(prod, pedido.owner)}> <span>+</span></button>
+              <button onClick={() => agregarPedido(prod, pedido.owner)}
+                      style={{width: '40px',
+                          height: '45px',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          fontSize: '20px'
+                      }}
+              > <span>+</span></button>
                 <p>{cantidadEnCuenta}</p>
-              <button onClick={() => quitarPedido(prod, pedido.owner)}> <span>-</span></button>
+              <button onClick={() => quitarPedido(prod, pedido.owner)}
+                      style={{width: '40px',
+                          height: '45px',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          fontSize: '30px'
+                        }}
+              > <span>-</span></button>
             </div>
             <div className='product-display-grid-info'>
               <p className='product-display-description'>{prod ? prod.description : ''}</p>

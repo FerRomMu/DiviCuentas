@@ -8,12 +8,12 @@ const DisplayRestaurant = ({ restaurant, id, callback }) => {
             <img className='display-restaurant-img' src={restaurant.image} alt={ restaurant.name }/>
         </aside>
         <header className='display-restaurant-title-grid'>
-          <h2 className='display-restaurant-title'>{restaurant.name}</h2>
+          <div className='display-restaurant-title'>{restaurant.name}</div>
           <p className='display-restaurant-subtitle'>{restaurant.type}</p>
         </header>
         <section className='display-restaurant-info-grid'>
           <div className='display-restaurant-location'>
-            <img className='display-restaurant-img-location' src='https://icon-library.com/images/new-location-icon/new-location-icon-4.jpg' alt=""></img>
+            <img className='display-restaurant-img-location' src='https://icones.pro/wp-content/uploads/2021/02/icone-de-broche-de-localisation-noire.png' alt=""></img>
             <p>{restaurant.direction}</p>
           </div>
         </section>

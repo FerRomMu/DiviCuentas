@@ -53,7 +53,7 @@ const FinalClientDetails = ({name, propina}) => {
 
   return (
     <div key={name}>
-        <h1>Cuenta de {name}</h1>
+        <h1 style={{fontSize: '30px'}}>Cuenta de {name}</h1>
           <DetalleProductoFinalizar products={allProducts()} propina={ propina }/>
         <h2>Total a pagar por {name}: ${(totalAPagar() + propina).toFixed(2) }</h2>
     </div>
