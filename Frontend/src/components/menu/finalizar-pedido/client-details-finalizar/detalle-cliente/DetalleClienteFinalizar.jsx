@@ -1,7 +1,7 @@
 import DetalleProductoFinalizar from "./detalle-producto/DetalleProductoFinalizar";
 import usePedido from '../../../../../context/PedidoContext'
 
-const FinalClientDetails = ({name}) => {
+const FinalClientDetails = ({name, propina}) => {
 
   const { pedido } = usePedido()
   console.log(pedido)
@@ -54,8 +54,8 @@ const FinalClientDetails = ({name}) => {
   return (
     <div key={name}>
         <h1 style={{fontSize: '30px'}}>Cuenta de {name}</h1>
-          <DetalleProductoFinalizar products={allProducts()}/>
-        <h2>Total a pagar por {name}: ${totalAPagar()}</h2>
+          <DetalleProductoFinalizar products={allProducts()} propina={ propina }/>
+        <h2>Total a pagar por {name}: ${(totalAPagar() + propina).toFixed(2) }</h2>
     </div>
 
   )
