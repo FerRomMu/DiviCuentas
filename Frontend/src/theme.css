@@ -38,22 +38,25 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 2px; /* Ajusta según sea necesario */
   font-weight: normal; /* Ajusta según sea necesario */
-  font-family: 'Agency FB';
+  font-family: "Baskerville Old Face";
   color: white;
   text-align: center;
   padding: 15px 20px; /* Ajusta el espaciado según sea necesario */
-  font-size: 3rem;
+  font-size: 60px;
   background: rgba(0, 0, 0, 0.5); /* Color y opacidad del fondo, ajusta según tus preferencias */
 }
 
 h2 {
   color: black;
   padding: 15px 10px;
-  font-size: 1.8rem;
+  font-size: 35px;
+  font-weight: normal;
+  font-family: Helvetica;
+  letter-spacing: -1px;
 }
 
 p {
-  color: black
+  color: black;
 }
 
 button {
@@ -88,7 +91,7 @@ button {
 }
 
 .bg {
-  background-color: var(--background-ligt);
+  background-color: antiquewhite;
 }
 
 .modal-background {

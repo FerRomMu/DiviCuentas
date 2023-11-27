@@ -26,15 +26,22 @@ const ModalCrearPedido = ({ close, setOrder, setOpenModal}) => {
         <div className="modal-background" onClick={close}>
             <div className="modal-content bg border">
                 <h2>¿Quién va a pedir?</h2>
-                <input
-                    type="text"
-                    placeholder="Ingresar un nombre"
-                    value={nombre}
-                    onChange={(e) => setNombre(e.target.value)}
-                    required/>
-
-                <button onClick={handleConfirmar}>Confirmar</button>
-                {error && <p>{error}</p>}
+                <div style={{ textAlign: 'center', marginTop: '5vh', transform: 'translateY(-50%)' }}>
+                    <div style={{ marginBottom: '10px' }}>
+                        <input
+                            type="text"
+                            placeholder="Ingresar un nombre"
+                            value={nombre}
+                            onChange={(e) => setNombre(e.target.value)}
+                            required
+                            style={{ height: '30px', width: '270px',  textAlign: 'center', fontSize: '18px' }}
+                        />
+                    </div>
+                    <div style={{ marginTop: '20px' }}>
+                        <button onClick={handleConfirmar}>Confirmar</button>
+                    </div>
+                    {error && <p>{error}</p>}
+                </div>
                 {/* <div className="close-button" >
                     Cerrar
                 </div> */}
