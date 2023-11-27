@@ -38,7 +38,7 @@ const ModalCrearPedido = ({ close, setOrder, setOpenModal}) => {
                         />
                     </div>
                     <div style={{ marginTop: '20px' }}>
-                        <button onClick={handleConfirmar}>Confirmar</button>
+                        <button onClick={handleConfirmar} style={{width: '150px'}}>Confirmar</button>
                     </div>
                     {error && <p>{error}</p>}
                 </div>

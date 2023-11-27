@@ -11,7 +11,7 @@ const ClientDetails = ({pedido}) => {
 
                 return (
                     <div key={index}>
-                        <h1>Cuenta de {name}</h1>
+                        <h1 style={{fontSize:'30px'}}>Cuenta de {name}</h1>
                         {Array.from(productsMap.entries()).map(([product, cantidad]) => (
                             <DetalleProducto key={product.id} product={product} cantidad={cantidad} />
                         ))}

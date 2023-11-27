@@ -68,18 +68,14 @@ body {
     vertical-align: bottom;
   }
   
-  .display-restaurant-button-grid { 
+  .display-restaurant-button-grid {
     grid-area: button-grid;
-    margin: auto; 
+    margin: auto;
     height: 100%;
+    width: 20%;
     max-height: 100%;
     font-size: 17px;
-  }
-  
-  .display-restaurant-button-grid {
     font-weight: 600;
-    width: 30%;
-    height: 100%;
   }
   
   .display-restaurant-button-grid:hover {

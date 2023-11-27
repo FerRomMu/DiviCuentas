@@ -5,7 +5,7 @@ import './DetalleProducto.css'
         return (
             <section className='detalle-producto'>
                 <img src={product.image} alt={product.name} />
-                <div>
+                <div className="detalle-texto">
                     <p>{product.name}</p>
                     <p>Precio: {product.price}</p>
                     <p>Cantidad: {cantidad}</p>

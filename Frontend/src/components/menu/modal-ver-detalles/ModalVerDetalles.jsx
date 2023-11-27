@@ -37,7 +37,7 @@ const ModalVerDetalles = ({close, restaurant}) => {
                 <main>
                     <h2>Comensales</h2>
                     <ClientDetails pedido={pedido} />
-                    <h1>Total del Pedido: <span>{totalSpent()}</span></h1>
+                    <h1 style={{fontSize:'30px'}}>  Total del Pedido: <span>{totalSpent()}</span></h1>
                     {Object.keys(totalPorPersona).map((name, index) => (
                         <p key={index}>{name}: {totalPorPersona[name]}</p>
                     ))}

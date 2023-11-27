@@ -33,7 +33,7 @@ const FinalizarPedido = () => {
                 <main>
                     <h2>Comensales</h2>
                     <ClientDetailsFinalizar comensales={ pedido.soloPersonas }/>
-                    <h1>Total del Pedido: <span>{totalSpent()}</span></h1>
+                    <h1 style={{fontSize: '30px'}}>Total del Pedido: <span>{totalSpent()}</span></h1>
                 </main>
                 <div className='fp-buttons'>
                   <button onClick={() => handlePagoRealizado()}>

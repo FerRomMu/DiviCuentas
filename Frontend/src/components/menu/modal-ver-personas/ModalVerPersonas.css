@@ -1,5 +1,7 @@
 .mvp-ul {
     font-size: 25px;
+    margin-left: 25px;
+
 }
 
 .mvp-personas {
@@ -8,3 +10,5 @@
     padding: 0px 20px 20px 20px;
     min-width: 50vw;
 }
+
+
